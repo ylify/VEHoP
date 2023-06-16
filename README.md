@@ -6,4 +6,5 @@ In most cases, phylogenetic relationships are based on amino acids sequences if 
 Dependencies: miniprot, python3, cd-hit, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner, uniqHaplo, AlignmentCompare.
 
 Usage: python3 homology-phylogeny.py prefix database (with a folder "raw_genome" containing genomic sequences)
+
 Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
