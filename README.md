@@ -7,14 +7,23 @@ Dependencies: miniprot, python3, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ
 
 
 #Installation
-We integrate lots of software and packages in the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba, which needs administration access and cpanm.
 
-HmmCleaner.pl
+##Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
-Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
+Command: mamba env create --name phylogenomics -f environment.yml (if mamba is not installed in your system, use conda)
+
+##note: We integrate lots of software and packages in the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba, which needs administration access and cpanm. As HmmCleaner.Pl is not a necessary one, I write it as the optional step in this pipeline. If such a file was not found in your system or environment, it will automatically skip. You don't have to do anything. 
+
+##HmmCleaner.pl: (https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL)
+
+#Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
 
 Command: mamba env create --name phylogenomics -f environment.yml (if mamba is not installed in your system, use conda)
 
 #Usage: python3 homology-phylogeny.py prefix database (optional, needed if genomic files in raw) (with a folder "raw" containing genomic sequences)
 
 Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
+
+Citation: 
+
+#Remark: Please cite the integrated software in this pipeline if you try to use 
