@@ -1,0 +1,30 @@
+name: phylogenomics
+channels:
+  - bioconda
+  - pytorch
+  - conda-forge
+dependencies:
+  - orthofinder>=2.5.4
+  - python>=3.8
+  - perl>=5.32.1
+  - cd-hit>=4.8.1 
+  - transdecoder>=5.7.0
+  - openjdk>=11.0.15
+  - miniprot>=0.11
+  - fasttree>=2.1.11
+  - iqtree>=2.2.0.3
+  - mafft>=7.508
+  - hmmer
+  - perl-bioperl>=1.7.8
+  - r-phangorn
+  - r-ape
+  - r-tibble
+  - r-ggplot2
+  - r-tidyr
+  - r-dplyr
+  - r-phytools
+  - r-adephylo
+  - r-ggplot2
+  - r-cowplot
+  - pip:
+    - phylopypruner==1.2.6 
