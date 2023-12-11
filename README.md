@@ -16,7 +16,7 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 
 ##Installation of HmmCleaner.pl: run two commands in HmmCleaner_install.sh (it might take ~20 minutes; be patient；try HmmCleaner.pl to check whether it was executable.)
 
-##As HmmCleaner.Pl is not a necessary one and the installation could be finished, I write it as the optional step in this pipeline. If such a file is not found or not executable in your system or environment, it will automatically skip. You don't have to do anything. 
+##As HmmCleaner.Pl is not a necessary one and the installation could not be always finished properly, I write it as the optional step in this pipeline. If such a file is not found or not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
