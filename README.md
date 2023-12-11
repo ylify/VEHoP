@@ -13,14 +13,13 @@ Dependencies: miniprot, python3, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ
 Command: mamba env create --name phylogenomics -f environment.yml (if mamba is not installed in your system, use conda)
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
+
 ##Installation of HmmCleaner.pl: sh HmmCleaner_install.sh (it might take ~20 minutes; be patient；try HmmCleaner.pl to check whether it was executable.)
+
 ##As HmmCleaner.Pl is not a necessary one and the installation could be finished, I write it as the optional step in this pipeline. If such a file is not found or not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
-#Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
-
-Command: mamba env create --name phylogenomics -f environment.yml (if mamba is not installed in your system, use conda)
 
 #Usage: python3 homology-phylogeny.py prefix database (optional, needed if genomic files in raw) (with a folder "raw" containing genomic sequences)
 
