@@ -25,6 +25,6 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 
 Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
 
-Citation: 
+Publication:
 
 #Remark: Please cite the integrated software (below) in this pipeline if you will include this pipeline.
