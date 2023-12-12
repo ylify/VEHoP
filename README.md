@@ -1,9 +1,9 @@
 # Homolog-phylogeny
 A pipeline to construct a phylogenomic tree from genomic sequences, transcripts, and proteins.
 
-In most cases, phylogenetic relationships are based on amino acids sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us to obtain the homolog-based prediction in a few minutes. The other point is that Wellcome Sanger Institute is working on expanding the genomic resources with thousands of organisms. In addition, the way to construct a good tree is somehow complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop a Python-based and one-step pipeline, which could be used to construct a phylogenomic tree from different sources, including genomic sequences, transcripts, and proteins.
+In most cases, phylogenetic relationships are based on amino acids sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us to obtain the homolog-based prediction in a few minutes. The other point is that Wellcome Sanger Institute is working on expanding the genomic resources with thousands of organisms. In addition, constructing a good tree is complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop a Python-based and one-step pipeline, which could be used to construct a phylogenomic tree from different sources, including genomic sequences, transcripts, and proteins.
 
-Dependencies: miniprot, python3, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.
+Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.
 
 
 #Installation
@@ -16,7 +16,7 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 
 ##Installation of HmmCleaner.pl: run two commands in HmmCleaner_install.sh (it might take ~20 minutes; be patient；try HmmCleaner.pl to check whether it was executable.)
 
-##As HmmCleaner.pl is not a necessary one and the installation could not be always finished properly, I write it as the optional step in this pipeline. If such a file is not found or not executable in your system or environment, it will automatically skip. You don't have to do anything. 
+##As HmmCleaner.pl is not necessary and the installation could not always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
@@ -26,5 +26,7 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
 
 Publication:
+
+If any questions, feel free to post an issue or email to ylify@connenct.ust.hk
 
 #Remark: Please cite the integrated software (below) in this pipeline if you will include this pipeline.
