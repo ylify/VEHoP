@@ -16,7 +16,7 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 
 ##Installation of HmmCleaner.pl: run two commands in HmmCleaner_install.sh (it might take ~20 minutes; be patient；try HmmCleaner.pl to check whether it was executable.)
 
-##As HmmCleaner.pl is not necessary and the installation could not always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
+##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
@@ -29,4 +29,16 @@ Publication:
 
 If any questions, feel free to post an issue or email to ylify@connenct.ust.hk
 
-#Remark: Please cite the integrated software (below) in this pipeline if you will include this pipeline.
+#Remark: Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed.
+Bioconda: https://doi.org/10.1038/s41592-018-0046-7
+general shell pipeline: https://doi.org/10.1093/sysbio/syw079
+BMGE: https://doi.org/10.1186/1471-2148-10-210
+cd-hit: https://doi.org/10.1093/bioinformatics/bts565
+miniprot: https://doi.org/10.1093/bioinformatics/btad014
+OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y
+IQ-TREE 2: https://doi.org/10.1093/molbev/msaa015
+FastTree: https://doi.org/10.1371/journal.pone.0009490
+uniqHaplo: http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/perl-scripts/uniqHaplo.pl
+AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git
+TransDecoder: https://github.com/TransDecoder/TransDecoder.git
+MAFFT: https://doi.org/10.1093/molbev/mst010
