@@ -14,7 +14,7 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
 
-##Installation of HmmCleaner.pl: run two commands in HmmCleaner_install.sh (it might take ~20 minutes; be patient；try HmmCleaner.pl to check whether it was executable.)
+##Installation of HmmCleaner.pl: run two commands manually, shown in HmmCleaner_install.sh (it might take ~20 minutes; be patient；try HmmCleaner.pl to check whether it was executable.)
 
 ##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
@@ -26,6 +26,7 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 Input: we define the rule of three sources, with three types of suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta
 
 Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
+
 
 Publication:
 
