@@ -32,13 +32,22 @@ If any questions, feel free to post an issue or email to ylify@connenct.ust.hk
 #Remark: Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed.
 
 Bioconda: https://doi.org/10.1038/s41592-018-0046-7
+
 General shell pipeline: https://doi.org/10.1093/sysbio/syw079
+
 AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git
+
 BMGE: https://doi.org/10.1186/1471-2148-10-210
+
 cd-hit: https://doi.org/10.1093/bioinformatics/bts565
+
 FastTree: https://doi.org/10.1371/journal.pone.0009490
+
 IQ-TREE 2: https://doi.org/10.1093/molbev/msaa015
+
 miniprot: https://doi.org/10.1093/bioinformatics/btad014
+
 OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y
+
 TransDecoder: https://github.com/TransDecoder/TransDecoder.git
 uniqHaplo: http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/perl-scripts/uniqHaplo.pl
