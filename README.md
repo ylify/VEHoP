@@ -23,6 +23,8 @@ Command: mamba env create --name phylogenomics -f environment.yml (if mamba is n
 
 #Usage: python3 homology-phylogeny.py prefix database (optional, needed if genomic files in raw) (with a folder "raw" containing genomic sequences)
 
+Input: we define the rule of three sources, with three types of suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta
+
 Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
 
 Publication:
