@@ -6,6 +6,12 @@ In most cases, phylogenetic relationships are based on amino acids sequences of 
 Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.
 
 
+Situation: 
+1) if all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.
+2) if some of the inputs are transcripts. the genetic_code in TransDecoder should be adjusted. In this pipeline, we adopt the Universal (default).
+3) if some of the inputs are genomic sequences, you should add the database for alignment.
+          
+
 #Installation
 
 ##Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
