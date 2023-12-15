@@ -56,16 +56,16 @@ options:
                         Genetic code for protein prediction from transcripts, which might be different based on phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
   
   -d DATABASE, --database DATABASE
-                        Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path).
+                        Protein sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path).
 
 Input: a folder (default 'raw' if not specified by -i) containing sequences. 
 We define the rule of three sources with specific suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta. 
-Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We recommend naming the input files as the below rules.
+Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We would recommend naming the input files according to the rules below.
 1) genus_species.genomic/transcript/pep.fasta
 2) If more than one input from the same species, try genus_species_1.genomic/transcript/pep.fasta and genus_species_2.genomic/transcript/pep.fasta
 3) To distinguish from assembly method or source, try genus_species_megahit.genomic/transcript/pep.fasta and genus_species_trinity.genomic/transcript/pep.fasta
 
-Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre
+Output: prefix.FastTree.full.tre, prefix.IQTREE2.full.tre, supermatrix.new.fas (concatenated matrix), partition_data.new.txt
 
 
 Publication:
