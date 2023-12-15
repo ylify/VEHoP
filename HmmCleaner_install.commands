@@ -1,2 +1,3 @@
+chmod +x ./dependencies/cpanm
 cpan Bio::MUST::Apps::HmmCleaner
 ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force
