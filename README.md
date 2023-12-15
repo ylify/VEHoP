@@ -18,8 +18,7 @@ Command: mamba activate phylogenomics (if mamba is not installed in your system,
 ##Installation of HmmCleaner.pl: 
 1) chmod +x ./dependencies/cpanm 
 2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
-3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force.
-Try HmmCleaner.pl to check whether it was executable without errors. (If errors, it will not produce results)
+3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)
 
 ##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
