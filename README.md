@@ -32,9 +32,30 @@ Command: mamba activate phylogenomics (if mamba is not installed in your system,
 
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
-#Usage: python3 homolog-phylogenomics-updated.py prefix database (optional, needed if genomic files in raw) # a folder "raw" containing sequences in the working directory
+#Usage: usage: homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
 
-Input: a folder named 'raw' containing sequences. We define the rule of three sources with specific suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta. 
+options:
+  -h, --help            show this help message and exit
+  -p PREFIX, --prefix PREFIX
+                        The prefix used in the output (Required)
+  -t THREADS, --threads THREADS
+                        Threads used in running (Required, defualt: 40).
+  -i INPUT, --input INPUT
+                        Files containing sequences for tree construction (Required, must be in the working directory, default: raw).
+  -m MIN_TAXA, --min_taxa MIN_TAXA
+                        The taxon threshold in parition (Required, defualt: 2/3 of the total inputs).
+  -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
+                        The length threshold in parition (Required, defualt: 100).
+  -g GENETIC_CODE, --genetic_code GENETIC_CODE
+                        Genetic code for proteins prediction from transcripts, which might be different based on phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only
+                        proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
+  -d DATABASE, --database DATABASE
+                        Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the the same
+                        genus, family, order, class or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in
+                        inputs; It must be provided with the absolute path).
+
+Input: a folder (default 'raw' if not specified by -i) containing sequences. 
+We define the rule of three sources with specific suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta. 
 Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We recommend naming the input files as the below rules.
 1) genus_species.genomic/transcript/pep.fasta
 2) If more than one input from the same species, try genus_species_1.genomic/transcript/pep.fasta and genus_species_2.genomic/transcript/pep.fasta
