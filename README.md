@@ -53,10 +53,10 @@ options:
                         The length threshold in partition (Required, default: 100).
  
   -g GENETIC_CODE, --genetic_code GENETIC_CODE
-                        Genetic code for protein prediction from transcripts, which might be different based on phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
+                        Genetic code for protein prediction from transcripts, which might be different with phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
   
   -d DATABASE, --database DATABASE
-                        Protein sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path).
+                        Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path)
 
 Input: a folder (default 'raw' if not specified by -i) containing sequences. 
 We define the rule of three sources with specific suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta. 
