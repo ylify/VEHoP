@@ -16,7 +16,7 @@ Situation:
 
 ##Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
-Command: mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, which have dependencies installed. 
+Command: mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
 Command: mamba activate phylogenomics (if mamba is not installed in your system, use conda)
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
@@ -31,7 +31,7 @@ Command: mamba activate phylogenomics (if mamba is not installed in your system,
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
 
-#Usage: python3 homolog-phylogenomics-updated.py prefix database (optional, needed if genomic files in raw) # a folder "raw" containing sequences in the workding directory
+#Usage: python3 homolog-phylogenomics-updated.py prefix database (optional, needed if genomic files in raw) # a folder "raw" containing sequences in the working directory
 
 Input: a folder named 'raw' containing sequences. We define the rule of three sources with specific suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta
 
