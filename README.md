@@ -3,7 +3,7 @@ A pipeline to construct a phylogenomic tree from genomic sequences, transcripts,
 
 In most cases, phylogenetic relationships are based on amino acid sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us to obtain the homolog-based prediction in a few minutes. The other point is that Wellcome Sanger Institute is working on expanding the genomic resources with thousands of organisms. In addition, constructing a good tree is complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop a Python-based and one-step pipeline, which could be used to construct a phylogenomic tree from different sources, including genomic sequences, transcripts, and proteins.
 
-We did the benchmark in the genomic-based phylogeny. 1) the assembled genome (draft genome shall be ok, even based on short-reads), 2) the newly sequenced samples (10X depth in short-reads is recommended if most of the samples in tree construction are draft genomes).
+We did the benchmark in the genomic-based phylogeny. 1) the assembled genome (draft genome shall be ok, even based on short-reads), 2) the newly sequenced samples (10X depth in short-reads is recommended if most of the samples in tree construction are draft genomes), 3) three sources could be used in a single tree.
 
 Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.
 
