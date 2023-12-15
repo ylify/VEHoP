@@ -23,7 +23,7 @@ Command: mamba activate phylogenomics (if mamba is not installed in your system,
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
 
-##Installation of HmmCleaner.pl: 
+##Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
 1) chmod +x ./dependencies/cpanm 
 2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
 3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)
