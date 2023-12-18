@@ -14,45 +14,42 @@ Situation:
 3) if some of the inputs are genomic sequences, you should add the database for alignment.
           
 
-Installation  
+'Installation'  
 #Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
-          Command:  
-          mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
-          mamba activate phylogenomics (if mamba is not installed in your system, use conda)
-
+    Command:  
+    mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
+    mamba activate phylogenomics (if mamba is not installed in your system, use conda)  
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
 
 ##Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
 
-          1) chmod +x ./dependencies/cpanm 
-          2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
-          3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)
-
-##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
-
-##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
-
-          chmod +x homolog-phylogenomics.py
+    1) chmod +x ./dependencies/cpanm 
+    2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
+    3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)  
+##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything.   
+##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL  
+'Usage'    
+    chmod +x homolog-phylogenomics.py
           
-          #Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
-          options:
-          -h, --help
-          show this help message and exit
-          -p PREFIX, --prefix PREFIX
-                        The prefix used in the output (Required)
-          -t THREADS, --threads THREADS
-                        Threads used in running (Required, default: 40).
-          -i INPUT, --input INPUT
-                        Files containing sequences for tree construction (Required, must be in the working directory, default: raw).         
-          -m MIN_TAXA, --min_taxa MIN_TAXA
-                        The taxon threshold in partition (Required, default: 2/3 of the total inputs).
-          -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
-                        The length threshold in partition (Required, default: 100).
-           -g GENETIC_CODE, --genetic_code GENETIC_CODE
-                        Genetic code for protein prediction from transcripts, which might be different with phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
-          -d DATABASE, --database DATABASE
-                        Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path)
+    #Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+    options:
+    -h, --help
+        The prefix used in the output (Required)show this help message and exit
+    -p PREFIX, --prefix PREFIX
+        The prefix used in the output (Required)
+    -t THREADS, --threads THREADS
+        Threads used in running (Required, default: 40).
+    -i INPUT, --input INPUT
+        Files containing sequences for tree construction (Required, must be in the working directory, default: raw).         
+    -m MIN_TAXA, --min_taxa MIN_TAXA
+        The taxon threshold in partition (Required, default: 2/3 of the total inputs).
+    -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
+        The length threshold in partition (Required, default: 100).
+    -g GENETIC_CODE, --genetic_code GENETIC_CODE
+        Genetic code for protein prediction from transcripts, which might be different with phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
+    -d DATABASE, --database DATABASE
+        Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path)
 
 Input: a folder (default 'raw' if not specified by -i) containing sequences. 
 We define the rule of three sources with specific suffixes. 1) genomic fasta: species_name.genomic.fasta. 2) transcripts: species_name.transcript.fasta. 3) proteins: species_name.pep.fasta. 
