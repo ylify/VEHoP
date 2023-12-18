@@ -67,6 +67,7 @@ Usage
                   relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) 
                   (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
                   It must be provided with the absolute path)
+                  (Database will not be included in the matrix and tree)
 
 Input
 -
