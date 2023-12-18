@@ -70,7 +70,7 @@ Usage
 
 Input
 -
-a folder (default 'raw' if not specified by -i) containing sequences. We define the rule of three sources with specific suffixes. 
+a folder (must be in the working directory, default: raw) containing sequences. We define the rule of three sources with specific suffixes. 
 
     1) genomic fasta: species_name.genomic.fasta
     2) transcripts: species_name.transcript.fasta
