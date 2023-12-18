@@ -10,9 +10,9 @@ Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTre
 
 Situation: 
 -
-1) if all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
-2) if some of the inputs are transcripts. the genetic_code in TransDecoder should be adjusted. In this pipeline, we adopt the Universal (default).  
-3) if some of the inputs are genomic sequences, you should add the database for alignment (-d database).
+1) If all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
+2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). In this pipeline, we adopt the Universal (default).  
+3) If some of the inputs are genomic sequences, you should add the database for alignment (-d database).
           
 
 Installation 
