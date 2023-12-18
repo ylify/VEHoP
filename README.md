@@ -9,7 +9,7 @@ Dependencies:
 -
 java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.  
 
-Situation: 
+Applicability: 
 -
 1) If all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
 2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). In this pipeline, we adopt the Universal (default).  
@@ -86,8 +86,8 @@ Note: species_name should be identical to others, otherwise it will fail in the 
       genus_species_1.genomic/transcript/pep.fasta and genus_species_2.genomic/transcript/pep.fasta  
     3) To distinguish from assembly method or source, try:
       genus_species_megahit.genomic.fasta for genomic assembly via megahit, 
-      genus_species_trinity.transcript.fasta for transcript assembly via Trinity
-
+      genus_species_trinity.transcript.fasta for transcript assembly via Trinity  
+      
 Output
 -
 All output will be accessible in wording_directory/$PREFIX__$NUMBER_OF_INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
@@ -108,7 +108,8 @@ Publication
 
 Remark
 -
-If you have any questions, feel free to post an issue or email to ylify@connenct.ust.hk
+If you have any questions, feel free to post an issue or email to ylify@connenct.ust.hk  
+  
 Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed.  
 Bioconda: https://doi.org/10.1038/s41592-018-0046-7  
 General shell pipeline: https://doi.org/10.1093/sysbio/syw079  
