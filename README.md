@@ -32,31 +32,24 @@ Command: mamba activate phylogenomics (if mamba is not installed in your system,
 
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
-chmod +x homolog-phylogenomics.py
+          chmod +x homolog-phylogenomics.py
           #Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
-
           options:
           -h, --help
           show this help message and exit
           -p PREFIX, --prefix PREFIX
                         The prefix used in the output (Required)
-  
-  -t THREADS, --threads THREADS
+          -t THREADS, --threads THREADS
                         Threads used in running (Required, default: 40).
- 
-  -i INPUT, --input INPUT
-                        Files containing sequences for tree construction (Required, must be in the working directory, default: raw).
-  
-  -m MIN_TAXA, --min_taxa MIN_TAXA
+          -i INPUT, --input INPUT
+                        Files containing sequences for tree construction (Required, must be in the working directory, default: raw).         
+          -m MIN_TAXA, --min_taxa MIN_TAXA
                         The taxon threshold in partition (Required, default: 2/3 of the total inputs).
- 
-  -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
+          -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
                         The length threshold in partition (Required, default: 100).
- 
-  -g GENETIC_CODE, --genetic_code GENETIC_CODE
+           -g GENETIC_CODE, --genetic_code GENETIC_CODE
                         Genetic code for protein prediction from transcripts, which might be different with phylum, please check by "TransDecoder.LongOrfs -h" (Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)
-  
-  -d DATABASE, --database DATABASE
+          -d DATABASE, --database DATABASE
                         Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; It must be provided with the absolute path)
 
 Input: a folder (default 'raw' if not specified by -i) containing sequences. 
