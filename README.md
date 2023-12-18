@@ -18,28 +18,28 @@ Situation:
 Installation 
 -
 Pre-installation: 
+mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
 
-    
-    mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge  
-    Command:  
-      mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
-      mamba activate phylogenomics (if mamba is not installed in your system, use conda)  
+    mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
+    mamba activate phylogenomics (if mamba is not installed in your system, use conda)  
 Note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba.   
 
 Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
 
-    1) chmod +x ./dependencies/cpanm 
-    2) cpan Bio::MUST::Apps::HmmCleaner 
+    chmod +x ./dependencies/cpanm 
+    cpan Bio::MUST::Apps::HmmCleaner 
               (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
-    3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force 
+    ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force 
               (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results) 
 ##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything.   
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
 Usage
 -
-    1) chmod +x homolog-phylogenomics.py          
-    2) python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+    chmod +x homolog-phylogenomics.py
+          (if you don't want to call python every run)
+    python3 homolog-phylogenomics.py (with absoulue path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+    example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca
     options:
           -h, --help
                   The prefix used in the output (Required)show this help message and exit
@@ -64,8 +64,7 @@ Usage
 
 Input
 -
-a folder (default 'raw' if not specified by -i) containing sequences.   
-We define the rule of three sources with specific suffixes. 
+a folder (default 'raw' if not specified by -i) containing sequences. We define the rule of three sources with specific suffixes. 
 
     1) genomic fasta: species_name.genomic.fasta
     2) transcripts: species_name.transcript.fasta
