@@ -9,12 +9,14 @@ Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTre
 
 
 Situation: 
+===
 1) if all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
 2) if some of the inputs are transcripts. the genetic_code in TransDecoder should be adjusted. In this pipeline, we adopt the Universal (default).  
 3) if some of the inputs are genomic sequences, you should add the database for alignment.
           
 
-'Installation'  
+Installation 
+===
 #Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
     Command:  
@@ -26,10 +28,12 @@ Situation:
 
     1) chmod +x ./dependencies/cpanm 
     2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
-    3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)  
+    3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results) 
 ##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything.   
-##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL  
-'Usage'    
+##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
+
+Usage
+===
     chmod +x homolog-phylogenomics.py
           
     #Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
