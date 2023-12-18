@@ -5,8 +5,9 @@ In most cases, phylogenetic relationships are based on amino acid sequences of m
 
 We did the benchmark in the genomic-based phylogeny. The topology is consistent with the result from high-quality proteins, with robust support in all nodes. 1) the assembled genome (draft genome shall be ok, even based on short-reads), 2) the newly sequenced samples (10X depth in short-reads and megahit assembler are recommended if most of the samples in tree construction are draft genomes), 3) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict. This pipeline will take the advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.
 
-Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.
-
+Dependencies: 
+-
+java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.  
 
 Situation: 
 -
@@ -27,7 +28,7 @@ mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforg
       #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
     mamba activate phylogenomics
       #(if mamba is not installed in your system, use conda)  
-Note: I most of many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba.   
+Note: I have integrated most of many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba.   
 
 Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
     
