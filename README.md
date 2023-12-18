@@ -88,7 +88,9 @@ Note: species_name should be identical to others, otherwise it will fail in the 
 Output
 -
 All output will be accessible in wording_directory/$PREFIX__$NUMBER_OF_INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
-example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca
+
+    working_directory: /home/yunlongli/test
+    example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca  
     Result: /home/yunlongli/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
 1) All partitions (Folder: filtered)
 2) supermatrix.new.fas (concatenated matrix)  
