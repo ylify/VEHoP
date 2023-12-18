@@ -21,7 +21,7 @@ Pre-installation:
 
 mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
 
-    git clone 
+    git clone https://github.com/ylify/Homolog-phylogeny.git #or download via release
     cd Homolog-phylogeny-1.0
     mamba env create --name phylogenomics -f environment.yml  
       #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
