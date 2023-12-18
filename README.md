@@ -124,7 +124,8 @@ Remark
 -
 If you have any questions, feel free to post an issue or email to ylify@connenct.ust.hk  
   
-Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed.  
+Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed. 
+Since not all dependencies included in your study, you could check the used ones in the log_file.  
 Bioconda: https://doi.org/10.1038/s41592-018-0046-7  
 General shell pipeline: https://doi.org/10.1093/sysbio/syw079  
 AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git  
