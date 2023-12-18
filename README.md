@@ -74,7 +74,7 @@ Input
 a folder (must be in the working directory, default: raw) containing sequences. We define the rule of three sources with specific suffixes. 
 
     1) genomic fasta: species_name.genomic.fasta
-    2) transcripts: species_name.transcript.fasta
+    2) transcript: species_name.transcript.fasta
     3) proteins: species_name.pep.fasta  
     
 Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We recommend naming the input files according to the rules below.  
@@ -85,10 +85,14 @@ Note: species_name should be identical to others, otherwise it will fail in the 
 
 Output
 -
-1) supermatrix.new.fas (concatenated matrix)  
-2) partition_data.new.txt  
-3) prefix.FastTree.full.tre  
-4) prefix.IQTREE2.full.tre  
+All output will be accessible in wording_directory/$PREFIX__$NUMBER_OF_INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
+example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca
+    Result: /home/yunlongli/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
+1) All partitions (Folder: filtered)
+2) supermatrix.new.fas (concatenated matrix)  
+3) partition_data.new.txt  
+4) prefix.FastTree.full.tre  
+5) prefix.IQTREE2.full.tre  
   
 Publication
 -
