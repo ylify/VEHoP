@@ -50,7 +50,7 @@ If you insist on installing it, please see the guidelines at https://metacpan.or
 Usage
 -
     chmod +x homolog-phylogenomics.py
-          (if you don't want to call python3 every run)
+      #(if you don't want to call python3 every run)
     python3 homolog-phylogenomics.py (with absoulue path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
     
     example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca
