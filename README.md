@@ -33,12 +33,12 @@ Command: mamba activate phylogenomics (if mamba is not installed in your system,
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
 chmod +x homolog-phylogenomics.py
-#Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+          #Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
 
-options:
-  -h, --help            show this help message and exit
-  
-  -p PREFIX, --prefix PREFIX
+          options:
+          -h, --help
+          show this help message and exit
+          -p PREFIX, --prefix PREFIX
                         The prefix used in the output (Required)
   
   -t THREADS, --threads THREADS
