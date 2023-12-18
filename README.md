@@ -17,16 +17,16 @@ Situation:
 Installation  
 #Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
-Command: 
+Command:  
           mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
           mamba activate phylogenomics (if mamba is not installed in your system, use conda)
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
 
-##Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
-1) chmod +x ./dependencies/cpanm 
-2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
-3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)
+##Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX):   
+          1) chmod +x ./dependencies/cpanm 
+          2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
+          3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)
 
 ##As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything. 
 
