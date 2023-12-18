@@ -9,17 +9,17 @@ Dependencies: java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTre
 
 
 Situation: 
-1) if all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.
-2) if some of the inputs are transcripts. the genetic_code in TransDecoder should be adjusted. In this pipeline, we adopt the Universal (default).
+1) if all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
+2) if some of the inputs are transcripts. the genetic_code in TransDecoder should be adjusted. In this pipeline, we adopt the Universal (default).  
 3) if some of the inputs are genomic sequences, you should add the database for alignment.
           
 
-#Installation
+Installation  
+#Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
-##Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
-
-Command: mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
-Command: mamba activate phylogenomics (if mamba is not installed in your system, use conda)
+Command: 
+          mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
+          mamba activate phylogenomics (if mamba is not installed in your system, use conda)
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
 
