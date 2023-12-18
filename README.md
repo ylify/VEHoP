@@ -17,13 +17,14 @@ Situation:
 Installation  
 #Pre-installation: mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge 
 
-Command:  
+          Command:  
           mamba env create --name phylogenomics -f environment.yml  #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
           mamba activate phylogenomics (if mamba is not installed in your system, use conda)
 
 ##note: We integrate many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba. 
 
-##Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX):   
+##Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
+
           1) chmod +x ./dependencies/cpanm 
           2) cpan Bio::MUST::Apps::HmmCleaner (This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
           3) ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force (Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results)
@@ -33,6 +34,7 @@ Command:
 ##If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
 
           chmod +x homolog-phylogenomics.py
+          
           #Usage: python3 homolog-phylogenomics.py [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
           options:
           -h, --help
