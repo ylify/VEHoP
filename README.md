@@ -53,7 +53,6 @@ Usage
       #(if you don't want to call python3 every run)
     python3 homolog-phylogenomics.py (with absoulue path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
     
-    example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca
     
     options:
           -h, --help
@@ -77,7 +76,7 @@ Usage
                   (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
                   It must be provided with the absolute path)
                   (Database will not be included in the matrix and tree)
-
+  
 Input
 -
 a folder (must be in the working directory, default: raw) containing sequences. We define the rule of three sources with specific suffixes. 
@@ -99,14 +98,22 @@ Output
 -
 All output will be accessible in wording_directory/$PREFIX__$NUMBER_OF_INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
 
-    working_directory: /home/yunlongli/test
-    example: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca  
-    Result: /home/yunlongli/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
 1) All partitions (Folder: filtered)
 2) supermatrix.new.fas (concatenated matrix)  
 3) partition_data.new.txt  
 4) prefix.FastTree.full.tre  
-5) prefix.IQTREE2.full.tre  
+5) prefix.IQTREE2.full.tre
+
+Example
+-
+    working_directory: /home/yunlongli/test
+    database: /home/yunlongli/mollusca_three.pep.fasta 
+    Time: 2023-12-25
+    Command: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca -d /home/yunlongli/mollusca_three.pep.fasta
+    log_file: /home/yunlongli/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
+    Result_directory: /home/yunlongli/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
+      /home/yunlongli/test/mollusca.40__0.25.IQTREE2.full.tre
+      /home/yunlongli/test/mollusca.40__0.25.FastTree.full.tre
   
 Publication
 -
