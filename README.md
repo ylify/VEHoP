@@ -1,7 +1,7 @@
 # Homolog-phylogeny
 A pipeline to construct a phylogenomic tree from genomic sequences, transcripts, and proteins.
 
-With the affordable sequencing, there is mushrooming data available in the public database. Most of them are not well annotated in genemodels. Wellcome Sanger Institute and IRADIAN GENOMICS and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
+With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
 
 In most cases, phylogenetic relationships are based on amino acid sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Besides, the transcripts from RNA-seq are also widely used. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us to obtain the homolog-based prediction in a few minutes. In addition, constructing a good tree is complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop a Python-based and one-step pipeline, which could be used to construct a phylogenomic tree from different sources, including genomic sequences, transcripts, and proteins.
 
