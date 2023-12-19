@@ -109,7 +109,7 @@ Example
     working_directory: /home/yunlongli/test
     database: /home/yunlongli/mollusca_three.pep.fasta 
     Time: 2023-12-25
-    Command: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -p test -t 40 -m 10 -i mollusca -d /home/yunlongli/mollusca_three.pep.fasta
+    Command: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
     log_file: /home/yunlongli/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
     Result_directory: /home/yunlongli/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
       /home/yunlongli/test/mollusca.40__0.25.IQTREE2.full.tre
