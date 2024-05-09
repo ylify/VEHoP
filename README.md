@@ -68,7 +68,9 @@ Usage
           -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
                   The length threshold in partition (Required, default: 100)
           -g GENETIC_CODE, --genetic_code GENETIC_CODE
-                  Genetic code for proteins prediction from transcripts, which might be different with phylum, please check by "TransDecoder.LongOrfs -h" (If the parameter is                     given, it will adopt TransDecoder to predict coding potential in transcripts. Optional if only proteins and genomic sequences as inputs; Required if                             transcripts existed in inputs, default: Universal) 
+                  Genetic code for proteins prediction from transcripts, which might be different with phylum, please check by 
+                  "TransDecoder.LongOrfs -h" (If the parameter is given, it will adopt TransDecoder to predict coding potential 
+                  in transcripts. Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal) 
           -d DATABASE, --database DATABASE
                   Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close
                   relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) 
