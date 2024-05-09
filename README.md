@@ -40,7 +40,7 @@ Note: I have integrated most of many software and packages into the pipeline. Of
 Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
     
     chmod +x ./dependencies/cpanm 
-    cpan Bio::MUST::Apps::HmmCleaner 
+    cpanm Bio::MUST::Apps::HmmCleaner 
       #(This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
     ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force 
       #(Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results) 
