@@ -1056,7 +1056,7 @@ with open('run_ASTRAL_FastTreeMP.sh','w') as tmp_out:
 
 ##Accurate mode based IQ-TREE2
 with open('run_ASTRAL_IQTREE2.sh','w') as tmp_out:
-    tmp_out.write('python3 '+path+'/run_ASTRAL_IQTREE2.py '+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+' '+str(cores))
+    tmp_out.write('python3 '+path+'/scripts/run_ASTRAL_IQTREE2.py '+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+' '+str(cores))
 
 print('\nAll done: '+str(now)+'\n')
 print('Spend time: '+str(timedelta(seconds=spend))+'\n')
