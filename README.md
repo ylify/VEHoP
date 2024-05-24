@@ -10,7 +10,7 @@ We did the benchmark in the genomic-based phylogeny. The topology is consistent 
     1) the assembled genome (draft genome shall be ok, even based on short-reads)
     2) the newly sequenced samples (10X depth in short-reads and megahit assembler are recommended if most of the samples in tree construction are draft genomes)
     3) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
-This pipeline will take the advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.
+This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.
 
 Dependencies: 
 -
@@ -19,8 +19,8 @@ java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, M
 Applicability: 
 -
 1) If all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
-2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). If the parameter is given, it will adopt TransDecoder in predicting coding potential in transcritps.  
-3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database).
+2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). If the parameter is given, it will adopt TransDecoder in predicting coding potential in transcripts.  
+3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database) or the genetic code of TransDecoder (-g Universal).
           
 
 Installation 
@@ -29,15 +29,15 @@ Pre-installation:
 
 mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
 
-    git clone https://github.com/ylify/Homolog-phylogeny.git #or download via release
-    cd Homolog-phylogeny-1.0
+    git clone https://github.com/ylify/VEHoP.git #or download via release
+    cd VEHoP-1.0
     mamba env create --name phylogenomics -f environment.yml  
       #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
     mamba activate phylogenomics
       #(if mamba is not installed in your system, use conda)  
 Note: I have integrated most of many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba.   
 
-Installation of HmmCleaner.pl (cd Homolog-phylogeny-XX): 
+Installation of HmmCleaner.pl (cd VEHoP): 
     
     chmod +x ./dependencies/cpanm 
     cpanm Bio::MUST::Apps::HmmCleaner 
@@ -49,9 +49,9 @@ If you insist on installing it, please see the guidelines at https://metacpan.or
 
 Usage
 -
-    chmod +x homolog-phylogenomics.py
+    chmod +x VEHoP.py
       #(if you don't want to call python3 every run)
-    python3 homolog-phylogenomics.py (with absoulue path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+    python3 VEHoP.py (with absoulue path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
     
     
     options:
@@ -86,7 +86,7 @@ a folder (must be in the working directory, default: raw) containing sequences. 
     2) transcript: species_name.transcript.fasta
     3) proteins: species_name.pep.fasta  
     
-Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We recommend naming the input files according to the rules below.  
+Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We would recommend that you name the input files according to the rules below.  
 
     1) genus_species.genomic/transcript/pep.fasta  
     2) If more than one input from the same species, try:
@@ -110,8 +110,8 @@ Example
     working_directory: /home/yunlongli/test
     database: /home/yunlongli/mollusca_three.pep.fasta 
     Time: 2023-12-25
-    Command: python3 /home/yunlongli/Software/Homolog-phylogeny-1.0/homolog-phylogeny.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
-    log_file: /home/yunlongli/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
+    Command: python3 /home/yunlongli/Software/VEHoP/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
+    log_file: /home/yunlongli/Software/VEHoP/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
     Result_directory: /home/yunlongli/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
       /home/yunlongli/test/mollusca.40__0.25.IQTREE2.full.tre
       /home/yunlongli/test/mollusca.40__0.25.FastTree.full.tre
@@ -126,7 +126,7 @@ Remark
 If you have any questions, feel free to post an issue or email to ylify@connenct.ust.hk  
   
 Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed. 
-Since not all dependencies included in your study, you could check the used ones in the log_file.  
+Since not all dependencies are included in your study, you could check the used ones in the log_file.  
 Bioconda: https://doi.org/10.1038/s41592-018-0046-7  
 General shell pipeline: https://doi.org/10.1093/sysbio/syw079  
 AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git  
