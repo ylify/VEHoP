@@ -1,4 +1,4 @@
-# VEHoP
+# VEHoP (version 1.0)
 An **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline based on multiple types (DNA, RNA, and protein sequences)
 
 With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
@@ -30,14 +30,14 @@ Pre-installation:
 mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
 
     git clone https://github.com/ylify/VEHoP.git #or download via release
-    cd VEHoP-v1.1
+    cd VEHoP
     mamba env create --name phylogenomics -f environment.yml  
       #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
     mamba activate phylogenomics
       #(if mamba is not installed in your system, use conda)  
 Note: I have integrated most of many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba.   
 
-Installation of HmmCleaner.pl (cd VEHoP-v1.1): 
+Installation of HmmCleaner.pl (cd VEHoP): 
     
     chmod +x ./dependencies/cpanm 
     cpanm Bio::MUST::Apps::HmmCleaner 
@@ -110,9 +110,9 @@ Example
     working_directory: /home/yunlongli/test
     database: /home/yunlongli/mollusca_three.pep.fasta 
     Time: 2023-12-25
-    Command: python3 /home/yunlongli/Software/VEHoP-v1.1/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
-    log_file: /home/yunlongli/Software/VEHoP-v1.1/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
-    Result_directory: /home/yunlongli/VEHoP-v1.1/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
+    Command: python3 /home/yunlongli/Software/VEHoP/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
+    log_file: /home/yunlongli/Software/VEHoP/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
+    Result_directory: /home/yunlongli/VEHoP/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
       /home/yunlongli/test/mollusca.40__0.25.IQTREE2.full.tre
       /home/yunlongli/test/mollusca.40__0.25.FastTree.full.tre
   
