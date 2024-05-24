@@ -15,6 +15,7 @@ dependencies:
   - iqtree>=2.2.0.3
   - mafft>=7.508
   - hmmer
+  - bmge
   - perl-bioperl>=1.7.8
   - r-phangorn
   - r-ape
