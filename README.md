@@ -1,5 +1,5 @@
-# Homolog-phylogeny
-A pipeline to construct a phylogenomic tree from genomic sequences, transcripts, and proteins.
+# VEHop
+An Versatile and Easy-to-use Homology-based Phylogenomic pipeline based on multiple types (DNA, RNA, and protein sequences)
 
 With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
 
