@@ -97,13 +97,17 @@ Note: species_name should be identical to others, otherwise it will fail in the 
       
 Output
 -
-All output will be accessible in wording_directory/$PREFIX__$NUMBER_OF_INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
+All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
 
 1) All partitions (Folder: filtered)
 2) supermatrix.new.fas (concatenated matrix)  
 3) partition_data.new.txt  
 4) prefix.FastTree.full.tre  
-5) prefix.IQTREE2.full.tre
+5) prefix.IQTREE2.full.tre  
+6) run_ASTRAL_FastTreeMP.sh  
+7) run_ASTRAL_IQTREE2.sh  
+8) run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa  
+9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa  
 
 Example
 -
