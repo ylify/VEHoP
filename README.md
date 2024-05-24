@@ -107,7 +107,7 @@ All output will be accessible in wording_directory/$PREFIX__$NUMBER_OF_INPUTS__$
 
 Example
 -
-    working_directory: /home/yunlongli/test
+    working_directory: /home/yunlongli/Software/VEHoP/test
     database: /home/yunlongli/mollusca_three.pep.fasta 
     Time: 2023-12-25
     Command: python3 /home/yunlongli/Software/VEHoP/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
