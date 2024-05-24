@@ -113,8 +113,8 @@ Example
     Command: python3 /home/yunlongli/Software/VEHoP/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
     log_file: /home/yunlongli/Software/VEHoP/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
     Result_directory: /home/yunlongli/VEHoP/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
-      /home/yunlongli/test/mollusca.40__0.25.IQTREE2.full.tre
-      /home/yunlongli/test/mollusca.40__0.25.FastTree.full.tre
+      /home/yunlongli/Software/VEHoP/test/mollusca.40__0.25.IQTREE2.full.tre
+      /home/yunlongli/Software/VEHoP/test/mollusca.40__0.25.FastTree.full.tre
   
 Publication
 -
