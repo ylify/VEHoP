@@ -1,5 +1,5 @@
 # VEHoP
-An **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic pipeline based on multiple types (DNA, RNA, and protein sequences)
+An **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline based on multiple types (DNA, RNA, and protein sequences)
 
 With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
 
