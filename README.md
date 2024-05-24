@@ -104,8 +104,8 @@ All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$O
 3) partition_data.new.txt  
 4) prefix.FastTree.full.tre  
 5) prefix.IQTREE2.full.tre  
-6) run_ASTRAL_FastTreeMP.sh  
-7) run_ASTRAL_IQTREE2.sh  
+6) run_ASTRAL_FastTreeMP.sh (gene trees implimented by FastTreeMP)  
+7) run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)  
 8) run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa  
 9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa  
 
