@@ -142,7 +142,7 @@ for run in run_lists:
 if len(exists) == len(run_lists):
     out_log.write('All dependencies have been checked. We are going to next step.\n')
 else:
-    if len(missings) ==1 and 'HmmCleaner.pl' in missing:
+    if len(missings) ==1 and 'HmmCleaner.pl' in missings:
         out_log.write('It seems to some dependencies missed: '+', '.join(missings)+'\n')
         out_log.write('HmmCleaner.pl is optional. Pipeline will start right now\n')
     else:
