@@ -14,6 +14,7 @@ dependencies:
   - fasttree>=2.1.11
   - iqtree>=2.2.0.3
   - mafft>=7.508
+  - trimal
   - hmmer
   - bmge
   - perl-bioperl>=1.7.8
