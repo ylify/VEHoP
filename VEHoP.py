@@ -16,6 +16,26 @@ import subprocess
 #Usage: python3 ~/Software/Homology-phylogenomics/homolog-phylogenomics-miniprot-20240105.py -p test -t 60 -i genomes -d ~/pep.fasta
 st = time.time()
 
+#Check dependencies
+run_lists = ['miniprot','bmge','gff3_file_to_proteins.pl','cd-hit','orthofinder','perl','mafft','java','phylopypruner','FastTreeMP','iqtree2','trimal']
+missings = []
+exists = []
+for run in run_lists:
+    if check_program_exist(run):
+        exists.append(run)
+    else:
+        missings.append(run)
+if len(exists) == len(run_lists):
+    out_log.write('All dependencies have been checked. We are going to next step.\n')
+else:
+    if len(missings) ==1 and 'HmmCleaner.pl' in missings:
+        out_log.write('It seems to some dependencies missed: '+', '.join(missings)+'\n')
+        out_log.write('HmmCleaner.pl is optional. Pipeline will start right now\n')
+    else:
+        out_log.write('It seems to some dependencies missed: '+', '.join(missings)+'\n')
+        out_log.write('Please check it/them at first before running\n')
+        sys.exit()
+
 if len(sys.argv) < 2:
     os.system('python3 '+' '.join(sys.argv)+' -h')
 
