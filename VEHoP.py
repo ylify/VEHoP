@@ -11,13 +11,10 @@ from datetime import timedelta
 import subprocess
 
 #Description: This script is used to predict coding-genes based on homologs, which could be further used to construct phylogenomic trees.
-#Dependencies:python, perl, cd-hit, transdecoder, java, miniprot, orthofinder, FastTree, IQTREE2, MAFFT, uniqHaplo, HmmCleaner, BMGE, AlignmentCompare 
+#Dependencies:python, perl, cd-hit, transdecoder, java, miniprot, orthofinder, FastTree, IQTREE2, MAFFT, uniqHaplo, HmmCleaner, BMGE, AlignmentCompare  
 #input_files: a protein database, DNA-level fastas, RNA-level fastas
 #Usage: python3 ~/Software/Homology-phylogenomics/homolog-phylogenomics-miniprot-20240105.py -p test -t 60 -i genomes -d ~/pep.fasta
 st = time.time()
-
-if len(sys.argv) < 2:
-    os.system('python3 '+' '.join(sys.argv)+' -h')
 
 #Check dependencies
 def check_program_exist(program):
@@ -38,15 +35,19 @@ for run in run_lists:
     else:
         missings.append(run)
 if len(exists) == len(run_lists):
-    print.write('All dependencies have been checked. We are going to next step.')
+    if '-h' not in sys.argv:
+        print('All dependencies have been checked. We are going to next step.')
 else:
     if len(missings) ==1 and 'HmmCleaner.pl' in missings:
-        print.write('It seems to some dependencies missed: '+', '.join(missings))
-        print.write('HmmCleaner.pl is optional. Pipeline will start right now')
+        print('It seems to some dependencies missed: '+', '.join(missings))
+        print('HmmCleaner.pl is optional. Pipeline will start right now')
     else:
-        print.write('It seems to some dependencies missed: '+', '.join(missings))
-        print.write('Please check it/them at first before running')
+        print('It seems to some dependencies missed: '+', '.join(missings))
+        print('Please check it/them at first before running)
         sys.exit()
+
+if len(sys.argv) < 2:
+    os.system('python3 '+' '.join(sys.argv)+' -h')
 
 parser = argparse.ArgumentParser(description='Description: A pipeline to construct a maximum likelihood tree (based amino acids) from genomic sequences, transcripts, and proteins.')
 parser.add_argument('-p', '--prefix', type=str, help='The prefix used in the output (Required)')
