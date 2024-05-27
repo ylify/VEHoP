@@ -17,6 +17,15 @@ import subprocess
 st = time.time()
 
 #Check dependencies
+def check_program_exist(program):
+    try:
+        result = subprocess.run(['which',program],capture_output=True,text=True)
+        if result.returncode == 0:
+            return True
+        else:
+            return False
+    except Exception:
+        return False
 run_lists = ['miniprot','bmge','gff3_file_to_proteins.pl','cd-hit','orthofinder','perl','mafft','java','phylopypruner','FastTreeMP','iqtree2','trimal']
 missings = []
 exists = []
