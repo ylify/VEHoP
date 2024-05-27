@@ -16,6 +16,9 @@ import subprocess
 #Usage: python3 ~/Software/Homology-phylogenomics/homolog-phylogenomics-miniprot-20240105.py -p test -t 60 -i genomes -d ~/pep.fasta
 st = time.time()
 
+if len(sys.argv) < 2:
+    os.system('python3 '+' '.join(sys.argv)+' -h')
+
 #Check dependencies
 def check_program_exist(program):
     try:
@@ -44,9 +47,6 @@ else:
         print.write('It seems to some dependencies missed: '+', '.join(missings))
         print.write('Please check it/them at first before running')
         sys.exit()
-
-if len(sys.argv) < 2:
-    os.system('python3 '+' '.join(sys.argv)+' -h')
 
 parser = argparse.ArgumentParser(description='Description: A pipeline to construct a maximum likelihood tree (based amino acids) from genomic sequences, transcripts, and proteins.')
 parser.add_argument('-p', '--prefix', type=str, help='The prefix used in the output (Required)')
@@ -150,24 +150,6 @@ out_log.flush()
 
 #check dependencies
 out_log.write('\n#check dependencies\n')
-def check_program_exist(program):
-    try:
-        result = subprocess.run(['which',program],capture_output=True,text=True)
-        if result.returncode == 0:
-            return True
-        else:
-            return False
-    except Exception:
-        return False
-
-run_lists = ['miniprot','bmge','gff3_file_to_proteins.pl','cd-hit','orthofinder','perl','mafft','java','phylopypruner','FastTreeMP','iqtree2','trimal']
-missings = []
-exists = []
-for run in run_lists:
-    if check_program_exist(run):
-        exists.append(run)
-    else:
-        missings.append(run)
 if len(exists) == len(run_lists):
     out_log.write('All dependencies have been checked. We are going to next step.\n')
 else:
