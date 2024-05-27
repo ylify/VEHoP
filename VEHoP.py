@@ -193,9 +193,13 @@ if len(genomes+transcripts) > 0:
         if os.path.isfile(database) is False:
             raise Exception
     except:
-        print('Please provide the absolute path of database for alignment.')
-        sys.exit()
-    out_log.write('\n#miniprot prediction and proteins sequences extraction from genome\n')
+        if len(genomes) > 0:
+            print('Please provide the absolute path of database for alignment.')
+            sys.exit()
+        elif transdecoder == 'Flase' and len(transcripts) > 0:
+            print('Please provide the absolute path of database for alignment.')
+            sys.exit()
+    out_log.write('\n#miniprot prediction and proteins sequences extraction from genome or transcripts\n')
     now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     out_log.write(str(now)+'\n')
     out_log.flush()
