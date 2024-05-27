@@ -40,10 +40,10 @@ if len(exists) == len(run_lists):
 else:
     if len(missings) ==1 and 'HmmCleaner.pl' in missings:
         print('It seems to some dependencies missed: '+', '.join(missings))
-        print('HmmCleaner.pl is optional. Pipeline will start right now')
+        print('HmmCleaner.pl is optional. Pipeline will start right now.')
     else:
         print('It seems to some dependencies missed: '+', '.join(missings))
-        print('Please check it/them at first before running)
+        print('Please check it/them at first before running.')
         sys.exit()
 
 if len(sys.argv) < 2:
