@@ -51,7 +51,7 @@ if len(sys.argv) < 2:
 parser = argparse.ArgumentParser(description='Description: A pipeline to construct a maximum likelihood tree (based amino acids) from genomic sequences, transcripts, and proteins.')
 parser.add_argument('-p', '--prefix', type=str, help='The prefix used in the output (Required)')
 parser.add_argument('-t', '--threads', type=int, help='Threads used in running (default: 40).')
-parser.add_argument('-i', '--input', type=str, help='Files containing sequences for tree construction (Required, must be in the working directory, default: raw).')
+parser.add_argument('-i', '--input', type=str, help='Folder containing sequences for tree construction (Required, must be in the working directory, default: raw).')
 parser.add_argument('-min', '--min_taxa', type=int, help='The taxon threshold in parition (default: 2/3 of the total inputs).')
 parser.add_argument('-l', '--length_cutoff', type=str, help='The length threshold in parition (default: 100).')
 parser.add_argument('-mode', '--mode', type=str, help='The software (FastTree or IQTREE2) to infer the gene tree in each OG; FastTree is time-efficient and IQTREE2 is more precise (default: FastTree).')
