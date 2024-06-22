@@ -137,6 +137,7 @@ AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git
 BMGE: https://doi.org/10.1186/1471-2148-10-210  
 cd-hit: https://doi.org/10.1093/bioinformatics/bts565  
 FastTree: https://doi.org/10.1371/journal.pone.0009490  
+HmmCleaner: https://doi.org/10.1186/s12862-019-1350-2  
 IQ-TREE 2: https://doi.org/10.1093/molbev/msaa015  
 miniprot: https://doi.org/10.1093/bioinformatics/btad014  
 OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y  
