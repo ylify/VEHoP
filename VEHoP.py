@@ -10,10 +10,6 @@ import random
 from datetime import timedelta
 import subprocess
 
-#Description: This script is used to predict coding-genes based on homologs, which could be further used to construct phylogenomic trees.
-#Dependencies:python, perl, cd-hit, transdecoder, java, miniprot, orthofinder, FastTree, IQTREE2, MAFFT, uniqHaplo, HmmCleaner, BMGE, AlignmentCompare  
-#input_files: a protein database, DNA-level fastas, RNA-level fastas
-#Usage: python3 ~/Software/Homology-phylogenomics/homolog-phylogenomics-miniprot-20240105.py -p test -t 60 -i genomes -d ~/pep.fasta
 st = time.time()
 
 #Check dependencies
@@ -67,7 +63,6 @@ uniqHaplo_path = path+'/dependencies/uniqHaplo.pl'
 AlignmentCompare_path = path+'/dependencies'
 BMGE_path = path+'/dependencies/BMGE-1.12/BMGE.jar'
 
-#parameters
 pwd = os.path.abspath('./')
 
 try:
@@ -138,7 +133,6 @@ except:
     with open(pwd+'/homolog-phylogenomics.'+prefix+'.'+str(num)+'_sets.input','w') as tmp_file:
         tmp_file.write('\n'.join(set(genomes+transcripts+proteins)))
 
-#log initiation
 today = time.strftime("%Y-%m-%d", time.localtime())
 out_log = open(pwd+'/homolog-phylogenomics.'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.'+str(today)+'.log','w')
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -149,7 +143,6 @@ out_log.write('Threads: '+str(cores)+'\n')
 out_log.write('Length_cutoff: '+str(seq_thres)+'\n')
 out_log.flush()
 
-#check dependencies
 out_log.write('\n#check dependencies\n')
 if len(exists) == len(run_lists):
     out_log.write('All dependencies have been checked. We are going to next step.\n')
@@ -195,7 +188,6 @@ def remove_linebreak(fa):
         else:
             os.system('rm '+fa)
 
-#miniprot prediction and proteins sequences extraction
 if len(genomes+transcripts) > 0:
     try:
         if '/' in database:
@@ -257,7 +249,6 @@ if len(genomes+transcripts) > 0:
                             out.write(n[0]+'\t'+'miniprot'+'\t'+'exon\t'+n[3]+'\t'+n[4]+'\t'+n[5]+'\t'+n[6]+'\t'+n[7]+'\tID=miniprot.mRNA.'+str(count)+'.exon.'+str(count_1)+'; Parent=miniprot.mRNA.'+str(count)+'\n')
             out.close()
 
-        #get proteins and remove proteins with stop '*'
         pep_file = pwd+'/miniprot/'+fasta_name.rsplit('.',1)[0]+'.miniprot.pep.fasta'
         try:
             if os.path.getsize(pep_file) < 100000:
@@ -279,7 +270,6 @@ if len(genomes+transcripts) > 0:
         out_log.write('       '+fasta_name+': '+str(timedelta(seconds=spend))+'\n')
         out_log.flush()
 
-#TransDecoder prediction from transcripts
 if transdecoder == 'True' and len(transcripts) > 0:
     out_log.write('\n#TransDecoder prediction from transcripts\n')
     now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -324,7 +314,6 @@ if len(proteins) > 0:
             fasta_name = fasta
         species_list.append(fasta_name.split('.')[0])
 
-#cd-hit processing
 if len(genomes+transcripts) > 0:
     out_log.write('\n#cd-hit processing\n')
     now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -353,7 +342,6 @@ if len(genomes+transcripts) > 0:
         out_log.flush()
 
 
-#Orthofinder processing
 out_log.write('\n#Orthofinder processing\n')
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 start_time = time.time()
@@ -444,7 +432,6 @@ else:
 out_log.flush()
 
 
-#Phylogenomic analysis
 out_log.write('\n#Phylogenomic analysis\n')
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 out_log.write(str(now)+'\n')
@@ -479,7 +466,7 @@ except:
                 break
             os.system('ln -s '+OG_name+' ./')
 
-#Check taxa number (2/3, default): 1st
+
 os.chdir(wd)
 if check_point('check_occupancy_1st@@'+same+'@@'+str(round(occupancy,2))):
     out_log.write('       Check occupancy ('+str(round(occupancy*num))+'/'+str(num)+') 1st: existed and skipped.\n')
@@ -528,7 +515,7 @@ else:
     write_check('check_occupancy_1st')
     out_log.flush()
 
-#Remove redundant sequences using uniqHaplo
+
 if check_point('uniqHaplo@@'+same+'@@'+str(round(occupancy,2))):
     out_log.write('       Remove redundant sequences using uniqHaplo: existed and skipped.\n')
 else:
@@ -559,7 +546,7 @@ else:
     write_check('uniqHaplo')
     out_log.flush()
 
-#Mafft alignment
+
 def mafft_aln(fa):
     os.system('cp '+fa+' ./03.backup_alignments')
     os.system("mafft --auto --localpair --quiet --maxiterate 1000 "+fa+' > '+fa+'.aln')
@@ -588,7 +575,7 @@ else:
     write_check('Mafft')
     out_log.flush()
 
-#Clean alignments with HmmCleaner
+
 def Hmmcleaner(fa):
     os.system('cp '+fa+' ./04.back_pre_HmmCleaner')
     os.system('HmmCleaner.pl '+fa+' --specificity')
@@ -626,7 +613,7 @@ else:
     out_log.write('       Clean alignments with HmmCleaner: HmmCleaner Not Found and skipped.\n')
 out_log.flush()    
 
-#Trim alignment with trimal
+
 def trimal(fa):
     os.system('cp '+fa+' ./05.backup_pre-trimal')
     os.system('trimal -in '+fa+' -out '+fa+'.trimal -automated1')
@@ -656,7 +643,7 @@ else:
     out_log.flush()
 
 
-#Trim alignments with BMGE
+
 def BMGE(fa):
     os.system('cp '+fa+' ./06.backup_pre-BMGE')
     #os.system('java -jar '+BMGE_path+' -t AA -i '+fa+' -of '+fa+'.BMGE')
@@ -686,7 +673,6 @@ else:
     write_check('BMGE')
     out_log.flush()
 
-#Remove any sequences that don't overlap with all other sequences by at least 20 amino acids. This check runs until all sequences overlap with all other sequences by at least 20 amino acids.
 def AlignmentCompare(fa):
     os.system('cp '+fa+' ./07.back_pre_AlignmentCompare')
     os.system('java -cp '+AlignmentCompare_path+' AlignmentCompare '+fa)
@@ -714,7 +700,6 @@ else:
     write_check('AlignmentCompare')
     out_log.flush()
 
-#Check taxa number (2/3): 2nd
 if check_point('check_occupancy_2nd@@'+same+'@@'+str(round(occupancy,2))):
     out_log.write('       Check occupancy ('+str(round(occupancy*num))+'/'+str(num)+') 2nd: existed and skipped.\n')
 else:
@@ -767,7 +752,6 @@ else:
     write_check('check_occupancy_2nd')
     out_log.flush()
 
-#Gene Tree inference
 def iqtree2(fa):
     iqtree2_cmd = 'iqtree2 -B 1000 -T 1 -s '+fa
     tre = fa.replace('.fa','.tre')
@@ -809,7 +793,6 @@ else:
     out_log.write('       Gene Tree in each OG ('+MODE+'):'+str(timedelta(seconds=spend))+'\n')
 out_log.flush()
 
-#check the '|' in the name and remove OGs with more than two lengths
 fas = glob.glob(wd+'*.fa')
 for fa in fas:
     length = []
@@ -826,7 +809,6 @@ for fa in fas:
             os.system('rm '+fa)
             os.system('rm '+fa.rsplit('.',1)[0]+'.tre')
 
-#Phylopyprunner processing
 start_time = time.time()
 phylopypruner_cmd = 'phylopypruner --threads '+str(cores)+' --min-taxa '+ str(round(occupancy*num))+' --min-len '+str(seq_thres)+' --dir . --min-support 0.75 --mask pdist --trim-divergent 0.75 --min-pdist 0.01 --prune MI'
 #out_log.write('       phylopypruner: '+phylopypruner_cmd+'\n')
@@ -887,7 +869,6 @@ except:
     out_fas.close()
     out_partition.close()
 
-#random subsample OG 2500000 and 5000000
 def fasta2phy(f):
     longest_name = ''
     taxa = 0
@@ -978,7 +959,6 @@ out_sub2_fa.close()
 fasta2phy(wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.2500000.fa')
 fasta2phy(wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.5000000.fa')
 
-#Phylobayes commands
 with open(wd+'phylopypruner_output/run_phylobayes.2500000.sh','w') as tmp_out:
     tmp_out.write('#Three chains running in Phylobayes\n')
     for tmp in range(1,4):
@@ -993,11 +973,9 @@ with open(wd+'phylopypruner_output/run_phylobayes.5000000.sh','w') as tmp_out:
     tmp_out.write('#Check maxdiff: if maxdiff < 0.1, it would be a good run\n')
     tmp_out.write('#bpcomp -x 300 '+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.2500000.PB.chain*.treelist\n')
 
-#FastTree for supermatrix.fas
 start_time = time.time()
 os.chdir(wd+'phylopypruner_output')
 fasttree_cmd = 'FastTreeMP -slow -gamma supermatrix.new.fas > FastTree.tre'
-#out_log.write('       FastTree for supermatrix.fas: '+fasttree_cmd+'\n')
 out_log.flush()
 try:
     if os.path.getsize(wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.FastTree.full.tre') < 10:
@@ -1007,12 +985,7 @@ except:
         tmp_out.write('export OMP_NUM_THREADS='+str(cores)+'\n')
         tmp_out.write(fasttree_cmd)
     os.system('sh run_fasttree.sh')
-#with open('FastTree.tre') as tmp_file:
-#    fasttree_content = tmp_file.read()
-    #with open(wd+'phylopypruner_output/FastTree.full.tre','w') as fasttree_out:
-    #    for abbr in full_abbr.keys():
-    #        fasttree_content = fasttree_content.replace(abbr,full_abbr[abbr])
-    #    fasttree_out.write(fasttree_content.replace(abbr,full_abbr[abbr]))
+
 os.system('cp '+wd+'phylopypruner_output/FastTree.tre '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.FastTree.full.tre')
 os.system('ln -fs '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.FastTree.full.tre '+pwd+'/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.FastTree.full.tre')
 end_time = time.time()
@@ -1023,7 +996,7 @@ else:
     out_log.write('       FastTree for supermatrix.fas: '+str(timedelta(seconds=spend))+'\n')
 out_log.flush()
 
-#IQ-TREE2 -m MFP construction
+
 start_time = time.time()
 iqtree2_cmd = 'iqtree2 --threads-max '+str(cores)+' -T AUTO -B 1000 -s supermatrix.new.fas -Q partition_data.new.txt -m MFP'
 #out_log.write('       IQ-TREE2 -m MFP construction: '+iqtree2_cmd+'\n')
@@ -1033,12 +1006,7 @@ try:
         raise Exception
 except:
     os.system(iqtree2_cmd)
-#with open('partition_data.new.txt.contree') as tmp_file:
-#    iqtree_content = tmp_file.read()
-#    with open('partition_data.new.txt.full.contree','w') as iqtree_out:
-#        for abbr in full_abbr.keys():
-#            iqtree_content = iqtree_content.replace(abbr,full_abbr[abbr])
-#        iqtree_out.write(iqtree_content.replace('_',' '))
+
 os.system('cp '+wd+'phylopypruner_output/partition_data.new.txt.contree '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.IQTREE2.full.tre')
 os.system('ln -fs '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.IQTREE2.full.tre '+pwd+'/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.IQTREE2.full.tre')
 end_time = time.time()
@@ -1055,8 +1023,7 @@ et = time.time()
 spend = round(et - st,1)
 out_log.write('\nSpend time: '+str(timedelta(seconds=spend))+'\n')
 
-#ASTRAL commands
-##Fast Mode based on FastTreeMP:
+
 with open('run_ASTRAL_FastTreeMP.sh','w') as tmp_out:
     tmp_out.write('export OMP_NUM_THREADS='+str(cores)+'\n')
     for OG in OGs:
@@ -1070,7 +1037,7 @@ with open('run_ASTRAL_FastTreeMP.sh','w') as tmp_out:
     tmp_out.write('cat '+wd+'phylopypruner_output/filtered/*.tre > '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.genetree_FastTreeMP.tre\n')
     tmp_out.write('astral -i '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.genetree_FastTreeMP.tre'+' -o '+wd+'phylopypruner_output/'+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+'.astral_FastTreeMP\n')
 
-##Accurate mode based IQ-TREE2
+
 with open('run_ASTRAL_IQTREE2.sh','w') as tmp_out:
     tmp_out.write('python3 '+path+'/scripts/run_ASTRAL_IQTREE2.py '+prefix+'.'+str(num)+'__'+str(round(occupancy,2))+' '+str(cores))
 
