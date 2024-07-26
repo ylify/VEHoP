@@ -7,7 +7,7 @@ pre = sys.argv[1]
 cores = int(sys.argv[2])
 
 pwd = os.path.abspath('./')+'/'
-OGs = glob.glob(pwd+'genesortR/iqtree2/*.fa')
+OGs = glob.glob(pwd+'filtered/*.fa')
 models = {}
 
 def run_iqtree2_MFP(fa):
