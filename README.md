@@ -1,5 +1,5 @@
 # VEHoP (version 1.0)
-A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline based on multiple types (DNA, RNA, and protein sequences)
+A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline accomodating multiple types (DNA, RNA, and protein sequences)
 
 With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
 
@@ -10,9 +10,10 @@ We did the benchmark in the genomic-based phylogeny. The topology is consistent 
     1) the assembled genome (draft genome shall be ok, even based on short-reads)
     2) the newly sequenced samples (10X depth in short-reads and megahit assembler are recommended if most of the samples in tree construction are draft genomes)
     3) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
-This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.
-![image](https://github.com/ylify/VEHoP/blob/main/Fig.1 Pipeline_1.jpeg)
-
+This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.    
+    
+![image](https://github.com/ylify/VEHoP/blob/main/Pipeline.jpeg)
+    
 Dependencies: 
 -
 java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.  
