@@ -51,18 +51,18 @@ If you insist on installing it, please see the guidelines at https://metacpan.or
 
 Dependency check:    
     python3 VEHoP.py -h     
-    It should be well resolved in dependency if the output included help information.
+    It should be well resolved in dependency if the output includes help information.
 
 Usage
 -
     chmod +x VEHoP.py
       #(if you don't want to call python3 every run)
-    python3 VEHoP.py (with absoulue path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+    python3 VEHoP.py (with absolute path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
     
     
     options:
           -h, --help
-                  The prefix used in the output (Required)show this help message and exit
+                  show this help message and exit
           -p PREFIX, --prefix PREFIX
                   The prefix used in the output (Required)
           -t THREADS, --threads THREADS
@@ -74,7 +74,7 @@ Usage
           -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
                   The length threshold in partition (Required, default: 100)
           -g GENETIC_CODE, --genetic_code GENETIC_CODE
-                  Genetic code for proteins prediction from transcripts, which might be different with phylum, please check by 
+                  Genetic code for protein prediction from transcripts, which might be different with phylum, please check by 
                   "TransDecoder.LongOrfs -h" (If the parameter is given, it will adopt TransDecoder to predict coding potential 
                   in transcripts. Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal) 
           -d DATABASE, --database DATABASE
