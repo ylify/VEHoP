@@ -47,7 +47,11 @@ Installation of HmmCleaner.pl (cd VEHoP):
     ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force 
       #(Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results) 
 As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything.  
-If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL
+If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL  
+
+Dependency check:    
+    python3 VEHoP.py -h     
+    It should be well resolved in dependency if the output included help information.
 
 Usage
 -
