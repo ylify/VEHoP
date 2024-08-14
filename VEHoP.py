@@ -50,7 +50,7 @@ parser.add_argument('-p', '--prefix', type=str, help='The prefix used in the out
 parser.add_argument('-t', '--threads', type=int, help='Threads used in running (default: 40).')
 parser.add_argument('-i', '--input', type=str, help='Folder containing sequences for tree construction (Required, must be in the working directory, default: raw).')
 parser.add_argument('-min', '--min_taxa', type=int, help='The taxon threshold in parition (default: 2/3 of the total inputs).')
-parser.add_argument('-l', '--length_cutoff', type=str, help='The length threshold in parition (default: 100).')
+parser.add_argument('-l', '--length_cutoff', type=int, help='The length threshold in parition (default: 100).')
 parser.add_argument('-mode', '--mode', type=str, help='The software (FastTree or IQTREE2) to infer the gene tree in each OG; FastTree is time-efficient and IQTREE2 is more precise (default: FastTree).')
 parser.add_argument('-g', '--genetic_code', type=str, help='Genetic code for proteins prediction from transcripts, which might be different with phylum, please check by "TransDecoder.LongOrfs -h" (If the parameter is given, it will adopt TransDecoder to predict coding potential in transcripts. Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal)')
 parser.add_argument('-d', '--database', type=str, help='Proteins sequences for homolog prediction from genomic and transcriptional sequences, it is suggested as proteins from its/their close relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) (Optional if proteins as inputs; Required if genomic or transcriptional sequences existed in inputs; It must be provided with the absolute path).')
