@@ -292,15 +292,15 @@ if transdecoder == 'True' and len(transcripts) > 0:
         except:
             try:
                 size = os.path.getsize(fasta.replace(input_folder,'transdecoder')+'.transdecoder.pep')
-                os.system('ln -s '+fasta.replace(input_folder,'transdecoder')+'.transdecoder.pep '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.filtered.fasta')
+                os.system('ln -s '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.pep '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.filtered.fasta')
             except:
-                ln_cmd = 'ln -s '+fasta+' '+fasta.replace(input_folder,'transdecoder')
+                ln_cmd = 'ln -s '+fasta+' '+pwd+'/transdecoder/'+fasta_name)
                 os.system(ln_cmd)
-                transdecoder_cmd_1 = 'TransDecoder.LongOrfs --genetic_code '+genetic_code+ ' -t '+fasta.replace(input_folder,'transdecoder')
-                transdecoder_cmd_2 = 'TransDecoder.Predict --genetic_code '+genetic_code+ ' -t '+fasta.replace(input_folder,'transdecoder')
+                transdecoder_cmd_1 = 'TransDecoder.LongOrfs --genetic_code '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
+                transdecoder_cmd_2 = 'TransDecoder.Predict --genetic_code '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
                 os.system(transdecoder_cmd_1)
                 os.system(transdecoder_cmd_2)
-                os.system('ln -s '+fasta.replace('raw','transdecoder')+'.transdecoder.pep '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.filtered.fasta')
+                os.system('ln -s '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.pep '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.filtered.fasta')
         end_time = time.time()
         spend = round(end_time - start_time)
         out_log.write('       '+fasta_name+': '+str(timedelta(seconds=spend))+'\n')
