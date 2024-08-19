@@ -22,7 +22,7 @@ Applicability:
 -
 1) If all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
 2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). If the parameter is given, it will adopt TransDecoder in predicting coding potential in transcripts.  
-3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database) or the genetic code of TransDecoder (-g Universal).    
+3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database). Otherwise, it will raise exception and exit.    
           
 
 Installation 
