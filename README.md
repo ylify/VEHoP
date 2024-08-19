@@ -132,6 +132,8 @@ Publication
 VEHoP: A Versatile, Easy-to-use, and Homology-based Phylogenomic pipeline accommodating diverse sequences    
 Yunlong Li, Xu Liu, Chong Chen, Jian-Wen Qiu, Kevin Kocot, Jin Sun    
 bioRxiv 2024.07.24.604968; doi: https://doi.org/10.1101/2024.07.24.604968    
+    
+Please give this project a star if VEHoP would be helpful in your research!    
 
 
 Remark
