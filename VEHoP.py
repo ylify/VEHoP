@@ -294,7 +294,7 @@ if transdecoder == 'True' and len(transcripts) > 0:
                 size = os.path.getsize(fasta.replace(input_folder,'transdecoder')+'.transdecoder.pep')
                 os.system('ln -s '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.pep '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.filtered.fasta')
             except:
-                ln_cmd = 'ln -s '+fasta+' '+pwd+'/transdecoder/'+fasta_name)
+                ln_cmd = 'ln -s '+fasta+' '+pwd+'/transdecoder/'+fasta_name
                 os.system(ln_cmd)
                 transdecoder_cmd_1 = 'TransDecoder.LongOrfs --genetic_code '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
                 transdecoder_cmd_2 = 'TransDecoder.Predict --genetic_code '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
