@@ -12,7 +12,9 @@ We did the benchmark in the genomic-based phylogeny (the second figure). The top
     3) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
 This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.    
     
+Workflow:    
 ![image](https://github.com/ylify/VEHoP/blob/main/Pipeline.jpeg)    
+Accuracy benchmark based on Ostreida:   
 ![image](https://github.com/ylify/VEHoP/blob/main/Fig.2.jpg)    
     
 Dependencies: 
