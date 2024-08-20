@@ -15,7 +15,7 @@ This pipeline will take advantage of ethanol-preserved samples and also the mass
 Workflow (Fig.1):
 -
 ![image](https://github.com/ylify/VEHoP/blob/main/Pipeline.jpeg)    
-Accuracy benchmark based on Ostreida (Fig.2):
+Accuracy benchmark based on Ostreida (Fig.2, evaluated by IQ-TREE2 with MFP model, full support in nodes not shown):
 -
 ![image](https://github.com/ylify/VEHoP/blob/main/Fig.2.jpg)    
     
@@ -27,7 +27,7 @@ Applicability:
 -
 1) If all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
 2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). If the parameter is given, it will adopt TransDecoder in predicting coding potential in transcripts.  
-3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database). Otherwise, it will raise exception and exit.    
+3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database). Otherwise, it will raise exceptions and exit.    
           
 
 Installation 
