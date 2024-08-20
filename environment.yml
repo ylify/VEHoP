@@ -16,6 +16,7 @@ dependencies:
   - mafft>=7.508
   - trimal
   - hmmer
+  - phylobayes-mpi
   - bmge
   - aster
   - perl-bioperl>=1.7.8
