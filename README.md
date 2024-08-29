@@ -109,7 +109,19 @@ Note: species_name should be identical to others, otherwise it will fail in the 
       
 Output
 -
-All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
+-   miniprot: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
+-   transdecoder: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
+-   cd-hit: the result of the non-redundant amino-acid sequences (from miniprot or TransDecoder) via CD-Hit (cut-off: 0.85)    
+-   $PREFIX.$NUMBER-OF-INPUTS.orthofinder
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.FastTree.full.tre
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.IQTREE2.full.tre 
+
+
+
+
+All output will be accessible in:    
+wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
 
 1) All partitions (Folder: filtered)
 2) supermatrix.new.fas (concatenated matrix)  
@@ -119,12 +131,14 @@ All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$O
 6) run_ASTRAL_FastTreeMP.sh (gene trees implimented by FastTreeMP)  
 7) run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)  
 8) run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa  
-9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa  
-10) miniprot folder: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
-11) transdecoder folder: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
-12) cd-hit folder: the result of the non-redundant amino-acid sequences via CD-Hit (cut-off: 0.85)
-13) $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics folder: the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, etc.
-14) $PREFIX.$NUMBER-OF-INPUTS.orthofinder folder: the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.
+9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa
+
+
+11) miniprot folder: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
+12) transdecoder folder: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
+13) cd-hit folder: the result of the non-redundant amino-acid sequences via CD-Hit (cut-off: 0.85)
+14) $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics folder: the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, etc.
+15) $PREFIX.$NUMBER-OF-INPUTS.orthofinder folder: the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.
 
 
 Tips in running
