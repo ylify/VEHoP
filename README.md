@@ -112,26 +112,29 @@ Output
 -   miniprot: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
 -   transdecoder: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
 -   cd-hit: the result of the non-redundant amino-acid sequences (from miniprot or TransDecoder) via CD-Hit (cut-off: 0.85)    
--   $PREFIX.$NUMBER-OF-INPUTS.orthofinder
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.FastTree.full.tre
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.IQTREE2.full.tre 
-
-
-
-
-All output will be accessible in:    
-wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/phylopypruner/  
-
-1) All partitions (Folder: filtered)
-2) supermatrix.new.fas (concatenated matrix)  
-3) partition_data.new.txt  
-4) prefix.FastTree.full.tre  
-5) prefix.IQTREE2.full.tre  
-6) run_ASTRAL_FastTreeMP.sh (gene trees implimented by FastTreeMP)  
-7) run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)  
-8) run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa  
-9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa
+-   $PREFIX.$NUMBER-OF-INPUTS.orthofinder (the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.)
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics (the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, phylopypruner, etc.)
+    -   01.backup_all_OGs/
+    -   02.backup_preUniqHaplo/
+    -   03.backup_alignments/
+    -   04.back_pre_HmmCleaner/
+    -   05.backup_pre-trimal/
+    -   06.backup_pre-BMGE/
+    -   07.back_pre_AlignmentCompare/
+    -   08.backup_check_occupancy_2nd/
+    -   phylopypruner_output/
+        -    All partitions (Folder: filtered)
+        -    supermatrix.new.fas (concatenated matrix)
+        -    partition_data.new.txt
+        -    prefix.FastTree.full.tre
+        -    prefix.IQTREE2.full.tre
+        -    run_ASTRAL_FastTreeMP.sh (gene trees implimented by FastTreeMP)
+        -    run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)
+        -    run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa
+        -    run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa    
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.FastTree.full.tre (FastTreeMP -slow -gamma)
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.IQTREE2.full.tre (iqtree2 -m MFP)
+-   homolog-phylogenomics.$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANC.$RUN-Day.log (running log of VEHoP)
 
 
 11) miniprot folder: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
