@@ -21,7 +21,7 @@ Accuracy benchmark based on Ostreida (Fig.2, evaluated by IQ-TREE2 with MFP mode
     
 Dependencies: 
 -
-java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare.  
+java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare, PhyloPyPruner.  
 
 Applicability: 
 -
@@ -116,24 +116,25 @@ Output
 -   transdecoder/: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
 -   cd-hit/: the result of the non-redundant amino-acid sequences (from miniprot or TransDecoder) via CD-Hit (cut-off: 0.85)    
 -   $PREFIX.$NUMBER-OF-INPUTS.orthofinder (the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.)
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics (the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, phylopypruner, etc.)
-    -   01.backup_all_OGs/
-    -   rejected_few_taxa_1
+-   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/ (the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, PhyloPyPruner, etc.)
+    -   OG*.fa and OG*.tre (input files in PhyloPyPruner)
+    -   01.backup_all_OGs/ (all OGs < 40000)
+    -   rejected_few_taxa_1/ (OGs with low taxonomy sampling)
     -   check_occupancy_1st.checkpoint.ok
-    -   02.backup_preUniqHaplo/
+    -   02.backup_preUniqHaplo/ (OGs before UniqHaplo)
     -   uniqHaplo.checkpoint.ok
-    -   03.backup_alignments/
+    -   03.backup_alignments/ (OGs before mafft aligning)
     -   Mafft.checkpoint.ok
-    -   04.back_pre_HmmCleaner/
+    -   04.back_pre_HmmCleaner/ (OGs before HmmCleaner processing)
     -   HmmCleaner.pl.checkpoint.ok
-    -   05.backup_pre-trimal/
+    -   05.backup_pre-trimal/ (OGs before trimal trimming)
     -   trimal.checkpoint.ok
-    -   06.backup_pre-BMGE/
+    -   06.backup_pre-BMGE/(OGs before BMGE processing)
     -   BMGE.checkpoint.ok
-    -   07.back_pre_AlignmentCompare/
+    -   07.back_pre_AlignmentCompare/ (OGs before AlignmentCompare processing)
     -   AlignmentCompare.checkpoint.ok
-    -   08.backup_check_occupancy_2nd/
-    -   rejected_few_taxa_2/
+    -   08.backup_check_occupancy_2nd/ (OGs before occupancy check)
+    -   rejected_few_taxa_2/ (OGs with low taxonomy sampling)
     -   check_occupancy_2nd.checkpoint.ok
     -   phylopypruner_output/
         -    All partitions (Folder: filtered)
@@ -144,16 +145,10 @@ Output
         -    run_ASTRAL_FastTreeMP.sh (gene trees implimented by FastTreeMP)
         -    run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)
         -    run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa
-        -    run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa    
-
-
-
-11) miniprot folder: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
-12) transdecoder folder: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
-13) cd-hit folder: the result of the non-redundant amino-acid sequences via CD-Hit (cut-off: 0.85)
-14) $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics folder: the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, etc.
-15) $PREFIX.$NUMBER-OF-INPUTS.orthofinder folder: the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.
-
+        -    run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa
+        -    plots (heatmap of occupancy)
+        -    phylopypruner.log (PhyloPyPruner running log)
+        -    partition_data.new.txt* (iqtree2 results)  
 
 Tips in running
 -
@@ -196,7 +191,8 @@ cd-hit: https://doi.org/10.1093/bioinformatics/bts565
 FastTree: https://doi.org/10.1371/journal.pone.0009490  
 HmmCleaner: https://doi.org/10.1186/s12862-019-1350-2  
 IQ-TREE 2: https://doi.org/10.1093/molbev/msaa015  
-miniprot: https://doi.org/10.1093/bioinformatics/btad014  
-OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y  
+miniprot: https://doi.org/10.1093/bioinformatics/btad014
+OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y
+
 TransDecoder: https://github.com/TransDecoder/TransDecoder.git  
 uniqHaplo: http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/perl-scripts/uniqHaplo.pl
