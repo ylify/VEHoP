@@ -118,7 +118,7 @@ Output
 -   $PREFIX.$NUMBER-OF-INPUTS.orthofinder (the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.)
 -   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/ (the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, PhyloPyPruner, etc.)
     -   OG*.fa and OG*.tre (input files in PhyloPyPruner)
-    -   01.backup_all_OGs/ (all OGs < 40000)
+    -   01.backup_all_OGs/ (the top 40000 OGs)
     -   rejected_few_taxa_1/ (OGs with low taxonomy sampling)
     -   check_occupancy_1st.checkpoint.ok
     -   02.backup_preUniqHaplo/ (OGs before UniqHaplo)
