@@ -121,6 +121,11 @@ All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$O
 8) run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa  
 9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa  
 
+Tips in running
+-
+    
+1)
+
 Example
 -
     working_directory: /home/yunlongli/Software/VEHoP/test
