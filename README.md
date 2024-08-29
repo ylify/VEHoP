@@ -120,11 +120,18 @@ All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$O
 7) run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)  
 8) run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa  
 9) run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa  
+10) miniprot folder: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
+11) transdecoder folder: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
+12) cd-hit folder: the result of the non-redundant amino-acid sequences via CD-Hit (cut-off: 0.85)
+13) $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics folder: the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, etc.
+14) $PREFIX.$NUMBER-OF-INPUTS.orthofinder folder: the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.
+
 
 Tips in running
 -
     
-1)
+1) The script will check the existence of intermedia files in homolog-inference from genomic or transcriptional profiles. It will skip the step if the same input and database in the same working directory as before. If you want to run in a new directory with the same input, you could make soft-links or copy them so that the pipeline will cost less time.
+2) Of course, more predicted proteins if more database. The consuming time in miniprot step will increase with the size of database. We would recomment two or three high-quality proteomes.
 
 Example
 -
