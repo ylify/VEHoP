@@ -130,8 +130,9 @@ All output will be accessible in wording_directory/$PREFIX.$NUMBER-OF-INPUTS__$O
 Tips in running
 -
     
-1) The script will check the existence of intermedia files in homolog-inference from genomic or transcriptional profiles. It will skip the step if the same input and database in the same working directory as before. If you want to run in a new directory with the same input, you could make soft links or copy them so that the pipeline will take less time. For example, you could like to test the performance of different length cut-off and taxonomy occupancy.
-2) Of course, more predicted proteins if more database. The consuming time in miniprot step will increase with the size of databases. We would recommend two or three high-quality proteomes.
+1) The script will check the existence of intermedia files in homolog-inference from genomic or transcriptional profiles. It will skip the step if the same input and database in the same working directory as before. If you want to run in a new directory with the same input, you could make soft links or copy them so that the pipeline will take less time. (We are considering to deposite this file in the package directory in the next version.)
+2) Of course, more predicted proteins if more database. The consuming time in miniprot step will increase with the size of databases. We would recommend two or three high-quality proteomes based on our tests.
+3) Please run in the same working directory if you would like to test the performance of difference taxonomy occupancy with the same input and database. It will skip the OrthoFinder step. 
 
 Example
 -
