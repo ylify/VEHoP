@@ -129,7 +129,7 @@ Output
     -   HmmCleaner.pl.checkpoint.ok
     -   05.backup_pre-trimal/ (OGs before trimal trimming)
     -   trimal.checkpoint.ok
-    -   06.backup_pre-BMGE/(OGs before BMGE processing)
+    -   06.backup_pre-BMGE/ (OGs before BMGE processing)
     -   BMGE.checkpoint.ok
     -   07.back_pre_AlignmentCompare/ (OGs before AlignmentCompare processing)
     -   AlignmentCompare.checkpoint.ok
