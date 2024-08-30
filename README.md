@@ -104,8 +104,8 @@ Note: species_name should be identical to others, otherwise it will fail in the 
     2) If more than one input from the same species, try:
       genus_species_1.genomic/transcript/pep.fasta and genus_species_2.genomic/transcript/pep.fasta  
     3) To distinguish from assembly method or source, try:
-      genus_species_megahit.genomic.fasta for genomic assembly via megahit, 
-      genus_species_trinity.transcript.fasta for transcript assembly via Trinity  
+      genus_species_megahit.genomic.fasta for genomic assembly via megahit (the purge duplicated contig is not required), 
+      genus_species_trinity.transcript.fasta for transcript assembly via Trinity (the selection of the longest isoform in gene is not required.)
       
 Output
 -
