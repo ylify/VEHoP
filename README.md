@@ -146,7 +146,9 @@ Output
         -    run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)
         -    run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa
         -    run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa
-        -    plots (heatmap of occupancy)
+        -    plots/ (heatmap of occupancy)
+        -    output_alignments/ (each OG that was pseudo single-copy via PhyloPyPruner, but there might be some duplicated OGs that will raise errors in iqtree2)
+        -    filtered/ (the deduplicated OGs from output_alignments)
         -    phylopypruner.log (PhyloPyPruner running log)
         -    partition_data.new.txt* (iqtree2 results)  
 
