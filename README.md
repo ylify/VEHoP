@@ -1,15 +1,17 @@
-# VEHoP (version 1)
-A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline accommodating multiple types (DNA, RNA, and protein sequences)
+# VEHoP (version 1.3)
+A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline accommodating multiple types (DNA, RNA, and protein sequences or raw reads)
 
 With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
 
-In most cases, phylogenetic relationships are based on amino acid sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Besides, the transcripts from RNA-seq are also widely used. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us to obtain the homolog-based prediction in a few minutes. In addition, constructing a good tree is complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop a Python-based and one-step pipeline, which could be used to construct a phylogenomic tree from different sources, including genomic sequences, transcripts, and proteins (the first figure).
+In most cases, phylogenetic relationships are based on amino acid sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Besides, the transcripts from RNA-seq are also widely used. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us in obtaining the homolog-based prediction in a few minutes. In addition, constructing a good tree is complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop an all-in-one phylogenomic solution, VEHoP which could be used to construct a phylogenomic tree from different sources, including raw reads, genomic sequences, transcripts, and proteins (the first figure).
 
 We did the benchmark in the genomic-based phylogeny (the second figure). The topology is consistent with the result from high-quality proteins, with robust support in all nodes. (test dataset has been deposited in Figshare, https://doi.org/10.6084/m9.figshare.26370955.v1 )
 
-    1) the assembled genome (draft genome shall be ok, even based on short-reads)
-    2) the newly sequenced samples (10X depth in short-reads and megahit assembler are recommended if most of the samples in tree construction are draft genomes)
-    3) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
+    1) raw reads (e.g., next-generation and third-generation sequencing in DNA and RNA)
+    2) assembled genome or transcriptome (draft genome shall be ok, even based on short-reads)
+    3) proteome from quality genomes with gene feature file (Recommened as database for mapping)
+    4) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
+    
 This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.    
     
 Workflow (Fig.1):
