@@ -19,7 +19,7 @@ Workflow (Fig.1):
 ![image](https://github.com/ylify/VEHoP/blob/main/Pipeline.jpeg)    
 Accuracy benchmark based on Ostreida (Fig.2, evaluated by IQ-TREE2 with MFP model, full support in nodes not shown):
 -
-![image](https://github.com/ylify/VEHoP/blob/main/Fig.2.jpg)    
+![image](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.2 Phylo&root-to-tip.pdf)    
     
 Dependencies: 
 -
