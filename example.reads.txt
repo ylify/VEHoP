@@ -1,0 +1,12 @@
+#The first row will be adpoted as the prefix in the final tree in addition to the type, therefore the identical species is suggested. If prefix was Crassostrea_hongkongensis and type was NGS, the assembled fasta will be Crassostrea_hongkongensis_NGS.genomic.fasta and  the label in the final matrix will be Crassostrea_hongkongensis_NGS.
+#If single-end reads, just leaved the 4th column blank
+#Type option: NGS for short reads; HiFi for HiFi long reads, ONT for nanopore long reads, RNA for short reads from RNA-seq
+#The input reads should be provided at the absolute path, and the compressed format (fq.gz, fq, fastq, fastq.gz) is supported.
+#For long reads (HiFi or ONT), fasta format is supported
+
+#prefix type	read_1	read_2 (leave it blank if single-end mode)
+#The information within bracket in the following examples is just for showing the assembler and its output name. Please do not add the bracket in your input reads.txt file#Crassostrea_hongkongensis_1	NGS	/home/yunlongli/read_1.fq	/home/yunlongli/read_2.fq (assembler: megahit, output: Crassostrea_hongkongensis_1_NGS.genomic.fasta)
+#Crassostrea_hongkongensis_2	HiFi	/home/yunlongli/read_1.fq (assembler: hifiasm, output: Crassostrea_hongkongensis_2_HiFi.genomic.fasta)
+#Crassostrea_hongkongensis_3	ONT	/home/yunlongli/read_1.fq (assembler: Shsata, output: Crassostrea_hongkongensis_3_ONT.genomic.fasta)
+#Crassostrea_hongkongensis_4	RNA	/home/yunlongli/read_1.fq.gz	/home/yunlongli/read_2.fq.gz (assembler: Trinity, output: Crassostrea_hongkongensis_4_RNA.transcript.fasta)
+#Crassostrea_hongkongensis_5	RNA	/home/yunlongli/read_1.paired.fq.gz	/home/yunlongli/read_2.paird.fq.gz (output: Crassostrea_hongkongensis_5_RNA.transcript.fasta)
