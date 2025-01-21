@@ -23,7 +23,7 @@ Accuracy benchmarks based on oysters, catfish, and insects with the other two me
     
 Dependencies: 
 -
-java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare, PhyloPyPruner.  
+hifiasm, Megahit, Trinity, shasta, sra-tools, trimmomatic, java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare, PhyloPyPruner.  
 
 Applicability: 
 -
@@ -91,11 +91,15 @@ Usage
                   (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
                   It must be provided with the absolute path)
                   (Database will not be included in the matrix and tree)
-  
+   
+Configuration
+-
+details shown in example.config
+
 Input
 -
 a folder (must be in the working directory, default: raw) containing sequences. We define the rule of three sources with specific suffixes. 
-
+    1) raw reads or SRA accession number (example shown in example.reads.txt)
     1) genomic fasta: species_name.genomic.fasta
     2) transcript: species_name.transcript.fasta
     3) proteins: species_name.pep.fasta  
