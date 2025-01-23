@@ -7,10 +7,10 @@ dependencies:
   - orthofinder>=2.5.4
   - python
   - megahit
-  - trinity=2.13.2
+  - trinity=2.5.1
   - hifiasm
   - shasta
-  - perl=5.22
+  - perl=5.32
   - perl-moose
   - cd-hit>=4.8.1 
   - transdecoder>=5.7.0
