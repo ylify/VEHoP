@@ -395,18 +395,16 @@ try:
             transcripts = transcripts + glob.glob(pwd+'/'+input_folder+'/*.transcript.fasta')
         if len(glob.glob(pwd+'/'+input_folder+'/*.pep.fasta')) > 0:
             proteins = proteins + glob.glob(pwd+'/'+input_folder+'/*.pep.fasta')
+    if os.path.isdir(pwd+'/reads') is True:
+        if len(glob.glob(pwd+'/reads/*.genomic.fasta')) > 0:
+            genomes = genomes + glob.glob(pwd+'/reads/*.genomic.fasta')
+        if len(glob.glob(pwd+'/reads/*.transcript.fasta')) > 0:
+            transcripts = transcripts + glob.glob(pwd+'/reads/*.transcript.fasta')
 except:
-    try:
-        if os.path.isdir(pwd+'/reads') is True:
-            if len(glob.glob(pwd+'/reads/*.genomic.fasta')) > 0:
-                genomes = genomes + glob.glob(pwd+'/reads/*.genomic.fasta')
-            if len(glob.glob(pwd+'/reads/*.transcript.fasta')) > 0:
-                transcripts = transcripts + glob.glob(pwd+'/reads/*.transcript.fasta')
-    except:
-        print('Something goes wrong in the input or reads.')
-        print('Please check.')
-        if len(genomes+proteins+transcripts) < 5:
-            sys.exit()
+    print('Something goes wrong in the input or reads.')
+    print('Please check.')
+    if len(genomes+proteins+transcripts) < 5:
+        sys.exit()
 if len(genomes+transcripts) > 0:
     try:
         if '/' in database:
