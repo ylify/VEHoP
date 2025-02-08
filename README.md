@@ -120,6 +120,8 @@ Output
 -   homolog-phylogenomics.$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANC.$RUN-Day.log (running log of VEHoP)
 -   miniprot/: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
 -   transdecoder/: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
+-   reads/: the processed results from reads (_RNA.transcript.fasta, _NGS.genomic.fasta, _HiFi.genomic.fasta, _ONT.genomic.fasta)
+    -  folders for each input reads
 -   cd-hit/: the result of the non-redundant amino-acid sequences (from miniprot or TransDecoder) via CD-Hit (cut-off: 0.85)    
 -   $PREFIX.$NUMBER-OF-INPUTS.orthofinder (the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.)
 -   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/ (the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, PhyloPyPruner, etc.)
