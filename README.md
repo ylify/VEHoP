@@ -19,7 +19,7 @@ Workflow (Fig.1):
 ![image](https://github.com/ylify/VEHoP/blob/main/Pipeline.jpeg)    
 Accuracy benchmarks based on oysters, catfish, and insects with the other two methods (Fig.2, evaluated by IQ-TREE2 with MFP model, full support in nodes not shown):
 -
-#![image](https://github.com/ylify/VEHoP/blob/main/Fig)    
+#![image](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.2.png)    
     
 Dependencies: 
 -
