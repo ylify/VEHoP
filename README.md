@@ -16,7 +16,7 @@ This pipeline will take advantage of ethanol-preserved samples and also the mass
     
 Workflow (Fig.1):
 -
-![image](https://github.com/ylify/VEHoP/blob/main/Pipeline.jpeg)    
+![image](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.1 VEHoP_pipeline_1.jpeg)    
 Accuracy benchmarks based on oysters, catfish, and insects with the other two methods (Fig.2, evaluated by IQ-TREE2 with MFP model, full support in nodes not shown):
 -
 #![image](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.2.png)    
