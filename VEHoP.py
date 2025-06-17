@@ -992,11 +992,15 @@ def iqtree2(fa):
     contree = fa+'.contree'
     if os.path.isfile(tre) is False:
         os.system(iqtree2_cmd)
-        os.system('mv '+contee+' '+tre)
+        os.system('mv '+contree+' '+tre)
+        os.system('rm '+fa+'.treefile')
     elif os.path.isfile(contree) is False:
-        os.system('mv '+contee+' '+tre)
+        os.system('mv '+contree+' '+tre)
+        os.system('rm '+fa+'.treefile')
+    if os.path.isfile(fa+'.treefile') is True:
+        os.system('rm '+fa+'.treefile')
+    
         
-
 start_time = time.time()
 fas_tree = glob.glob(wd+'*.fa')
 if MODE == 'FastTree':
