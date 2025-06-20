@@ -67,7 +67,7 @@ Dependency check:
     python3 VEHoP.py -h    
          
     For docker: 
-    docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash （activate the image; host_input_working_dir should contain all the input files））
+    docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash （activate the image; host_input_working_dir should contain all the input files)
     python /root/app/VEHoP/VEHoP.py -h  
          
     It should be well resolved in dependency if the output includes help information shown below.
