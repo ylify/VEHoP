@@ -66,7 +66,7 @@ Dependency check:
     For a locally deployed environment: 
     python3 VEHoP.py -h    
          
-    For docker (**host_input_working_dir** should contain all the input files):
+    For Docker (host_input_working_dir should contain all the input files):
     docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash （the interactive image)
     python /root/app/VEHoP/VEHoP.py -h  
          
