@@ -9,7 +9,7 @@ We did the benchmark in the genomic-based phylogeny (the second figure). The top
 
     1) raw reads (e.g., next-generation and third-generation sequencing in DNA and RNA)
     2) assembled genome or transcriptome (draft genome shall be ok, even based on short-reads)
-    3) proteome from quality genomes with gene feature file (Recommened as database for mapping)
+    3) proteome from quality genomes with gene feature file (Recommended as database for mapping)
     4) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
     
 This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.    
