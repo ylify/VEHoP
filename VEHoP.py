@@ -608,7 +608,7 @@ except:
         cd_hit_fastas_1 = []
         for cd_hit_fasta in cd_hit_fastas:
             if cd_hit_fasta.rsplit('/')[-1].split('.')[0] in set(species_list):
-                if 'transcript' not in cd_hit_fasta.rsplit('/')[-1]:
+                if cd_hit_fasta.rsplit('/')[-1].endswith('transcript.fasta') is True:
                     cd_hit_fastas_1.append(cd_hit_fasta)
                 else:
                     if transdecoder == 'True' and 'transdecoder' in cd_hit_fasta.rsplit('/')[-1]:
