@@ -1,216 +1,197 @@
 # VEHoP (version 1.3)
-A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline accommodating multiple types (DNA, RNA, and protein sequences or raw reads)
 
-With affordable sequencing, mushrooming data is available in the public database. Most of them are not well annotated in the gene model. Wellcome Sanger Institute, IRADIAN GENOMICS, and others are working on expanding the genomic resources with thousands of organisms. How to use these data will be a valuable question to answer.
+A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline accommodating multiple data types (DNA, RNA, protein sequences, or raw reads).
 
-In most cases, phylogenetic relationships are based on amino acid sequences of multi-genes, but it is time-consuming and complicated for researchers to predict eukaryotic genes from the genome. The commonly used methods include MAKER and EVidenceModeler. Besides, the transcripts from RNA-seq are also widely used. Thanks to the newly published Protein-to-genome aligner by Dr. Heng Li, miniprot, it really benefits us in obtaining the homolog-based prediction in a few minutes. In addition, constructing a good tree is complicated and not user-friendly for most biologists, especially for the mushrooming data. Here, we develop an all-in-one phylogenomic solution, VEHoP, which could be used to construct a phylogenomic tree from different sources, including raw reads, genomic sequences, transcripts, and proteins (the first figure).
+With the advent of affordable sequencing technologies, massive amounts of data have become publicly available. However, the annotation quality of many gene models remains suboptimal. Institutions such as the Wellcome Sanger Institute and IRADIAN GENOMICS, among others, are working to improve these annotations.
 
-We did the benchmark in the genomic-based phylogeny (the second figure). The topology is consistent with the result from high-quality proteins, with robust support in all nodes. (test dataset has been deposited in Figshare, https://doi.org/10.6084/m9.figshare.26370955.v1 )
+Typically, phylogenetic relationships are inferred from amino acid sequences of multiple genes. However, predicting eukaryotic genes directly from genomes is often time-consuming and complex. VEHoP aims to simplify this process by providing a unified pipeline that accommodates various input types and delivers reliable phylogenetic results.
 
-    1) raw reads (e.g., next-generation and third-generation sequencing in DNA and RNA)
-    2) assembled genome or transcriptome (draft genome shall be ok, even based on short-reads)
-    3) proteome from quality genomes with gene feature file (Recommended as database for mapping)
-    4) three sources could be used in a single tree, which expands the coverage of taxonomy. The sample requirement for a high-quality genome or transcriptome is strict, for example, liquid nitrogen or RNALATER
-    
-This pipeline will take advantage of ethanol-preserved samples and also the massive NGS data from the mitochondrial and genome-survey projects.    
-    
-Workflow (Fig.1):
--
-![image](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.1_VEHoP_pipeline_1.jpeg)    
-Accuracy benchmarks based on oysters, catfish, and insects with the other two methods (Fig.2, evaluated by IQ-TREE2 with MFP model, full support in nodes not shown):
--
-#![image](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.2.png)    
-    
-Dependencies: 
--
-hifiasm, Megahit, Trinity, shasta, sra-tools, trimmomatic, java, miniprot, python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, Mafft, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare, PhyloPyPruner.  
+Our benchmarking demonstrates that VEHoP's genome-based phylogenies are consistent with those based on high-quality protein datasets, offering robust support across all nodes (test datasets have been provided for reference).
 
-Applicability: 
--
-1) If all inputs are proteins, it should work in any organisms, including prokaryotes and eukaryotes.  
-2) If some of the inputs are transcripts, the genetic_code in TransDecoder should be adjusted (-g Universal). If the parameter is given, it will adopt TransDecoder in predicting coding potential in transcripts.  
-3) If some of the inputs are genomic sequences or miniprot-based transcripts, you should add the database for alignment (-d database). Otherwise, it will raise exceptions and exit.    
-          
+Supported Input Types:
 
-Installation 
--
-Pre-installation:
+1. Raw reads (e.g., from next-generation or third-generation DNA/RNA sequencing)
+2. Assembled genomes or transcriptomes (drafts are acceptable, even those based on short reads)
+3. Proteomes from high-quality genomes, accompanied by gene feature files (recommended as mapping databases)
+4. Combinations of any of the above sources can be used to construct a single tree, expanding taxonomic coverage. Note that requirements for high-quality genomes or transcriptomes are strict (such as sample preservation in liquid nitrogen).
 
-mamba (highly suggested) or conda. Link: https://github.com/conda-forge/miniforge#mambaforge
+This pipeline takes advantage of ethanol-preserved samples and leverages extensive NGS data from mitochondrial and genome-survey projects.
 
-    git clone https://github.com/ylify/VEHoP.git #or download via release 
-    cd VEHoP
-    mamba env create --name phylogenomics -f environment.yml  
-      #Once finished, a new environment named phylogenomics will be created, with most dependencies installed. 
-    mamba activate phylogenomics
-      #(if mamba is not installed in your system, use conda)  
-Note: I have integrated most of many software and packages into the pipeline. Of them, only HmmCleaner.pl could not be configured by conda/mamba.   
+## Workflow
 
-Installation of HmmCleaner.pl (cd VEHoP): 
-    
-    chmod +x ./dependencies/cpanm 
-    cpanm Bio::MUST::Apps::HmmCleaner 
-      #(This step might take ~20 minutes; be patient; this installation always fails; no worried about that)
-    ./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force 
-      #(Try HmmCleaner.pl to check whether it was executable without errors. If errors, it will not produce results) 
-As HmmCleaner.pl is unnecessary, and the installation cannot always be finished properly, I write it as the optional step in this pipeline. If such a file is not found or is not executable in your system or environment, it will automatically skip. You don't have to do anything.  
-If you insist on installing it, please see the guidelines at https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL  
+![VEHoP Workflow](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.1_VEHoP_pipeline_1.jpeg)
 
-Docker images:
+## Accuracy Benchmarks
 
-    docker pull agnostidae/vehop:1.3
+Benchmarks based on oysters, catfish, and insects, compared with two other methods (Fig.2), evaluated with IQ-TREE2 (MFP model; node supports not shown):
 
+![Benchmarks](https://github.com/ylify/VEHoP/blob/main/Figs/Fig.2.png)
 
-Dependency check:
--
-    For a locally deployed environment: 
-    python3 VEHoP.py -h    
-         
-    For Docker (host_input_working_dir should contain all the input files):
-    docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash （the interactive image)
-    python /root/app/VEHoP/VEHoP.py -h  
-         
-    It should be well resolved in dependency if the output includes help information shown below.
+## Dependencies
 
-Usage
--
-    chmod +x VEHoP.py
-      #(if you don't want to call python3 every run)
-    python3 VEHoP.py (with absolute path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
-    
-    
-    options:
-          -h, --help
-                  show this help message and exit
-          -p PREFIX, --prefix PREFIX
-                  The prefix used in the output (Required)
-          -t THREADS, --threads THREADS
-                  Threads used in running (Required, default: 40)
-          -i INPUT, --input INPUT
-                  Files containing sequences for tree construction (Required, must be in the working directory, default: raw)        
-          -m MIN_TAXA, --min_taxa MIN_TAXA
-                  The taxon threshold in partition (Required, default: 2/3 of the total inputs)
-          -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
-                  The length threshold in partition (Required, default: 100)
-          -g GENETIC_CODE, --genetic_code GENETIC_CODE
-                  Genetic code for protein prediction from transcripts, which might be different with phylum, please check by 
-                  "TransDecoder.LongOrfs -h" (If the parameter is given, it will adopt TransDecoder to predict coding potential 
-                  in transcripts. Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal) 
-          -d DATABASE, --database DATABASE
-                  Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close
-                  relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) 
-                  (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
-                  It must be provided with the absolute path)
-                  (Database will not be included in the matrix and tree)
-   
-Configuration
--
-details shown in example.config
+VEHoP requires the following software:
+- hifiasm, Megahit, Trinity, Shasta, sra-tools, Trimmomatic, Java, miniprot, Python, CD-HIT, TransDecoder, OrthoFinder, FastTree, IQ-TREE2, MAFFT, BMGE, HmmCleaner (optional), BioPerl, uniqHaplo, AlignmentCompare
 
-Input
--
-a folder (must be in the working directory, default: raw) containing sequences. We define the rule of three sources with specific suffixes. 
-    1) raw reads or SRA accession number (example shown in example.reads.txt)
-    1) genomic fasta: species_name.genomic.fasta
-    2) transcript: species_name.transcript.fasta
-    3) proteins: species_name.pep.fasta  
-    
-Note: species_name should be identical to others, otherwise it will fail in the tree visualization. We would recommend that you name the input files according to the rules below.  
+## Applicability
 
-    1) genus_species.genomic/transcript/pep.fasta  
-    2) If more than one input from the same species, try:
-      genus_species_1.genomic/transcript/pep.fasta and genus_species_2.genomic/transcript/pep.fasta  
-    3) To distinguish from assembly method or source, try:
-      genus_species_megahit.genomic.fasta for genomic assembly via megahit (the purge duplicated contig is not required), 
-      genus_species_trinity.transcript.fasta for transcript assembly via Trinity (the selection of the longest isoform in gene is not required.)
-      
-Output
--
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.FastTree.full.tre (FastTreeMP -slow -gamma)
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.IQTREE2.full.tre (iqtree2 -m MFP)
--   homolog-phylogenomics.$PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANC.$RUN-Day.log (running log of VEHoP)
--   miniprot/: the result of homolog-inference via miniprot, including gene feature files (gff and gff3) and predicted amino-acid sequences (pep.fasta)
--   transdecoder/: the result of homolog-inference via TransDecoder (default output), including the predicted amino-acid sequences (pep.fasta)
--   reads/: the processed results from reads (_RNA.transcript.fasta, _NGS.genomic.fasta, _HiFi.genomic.fasta, _ONT.genomic.fasta)
-    -  folders for each input reads
--   cd-hit/: the result of the non-redundant amino-acid sequences (from miniprot or TransDecoder) via CD-Hit (cut-off: 0.85)    
--   $PREFIX.$NUMBER-OF-INPUTS.orthofinder (the result of name-formatted amino-acid sequences (required in Phylopypruner) and the corresponding change log, and OrthoFinder. It also contains a Fullname_abbr.txt that records the formatted name and the original species name.)
--   $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.Phylogenomics/ (the result of phylogenomic processes, including taxonomy occupancy, alignment, trimming, PhyloPyPruner, etc.)
-    -   OG*.fa and OG*.tre (input files in PhyloPyPruner)
-    -   01.backup_all_OGs/ (the top 40000 OGs)
-    -   rejected_few_taxa_1/ (OGs with low taxonomy sampling)
-    -   check_occupancy_1st.checkpoint.ok
-    -   02.backup_preUniqHaplo/ (OGs before UniqHaplo)
-    -   uniqHaplo.checkpoint.ok
-    -   03.backup_alignments/ (OGs before mafft aligning)
-    -   Mafft.checkpoint.ok
-    -   04.back_pre_HmmCleaner/ (OGs before HmmCleaner processing)
-    -   HmmCleaner.pl.checkpoint.ok
-    -   05.backup_pre-trimal/ (OGs before trimal trimming)
-    -   trimal.checkpoint.ok
-    -   06.backup_pre-BMGE/ (OGs before BMGE processing)
-    -   BMGE.checkpoint.ok
-    -   07.back_pre_AlignmentCompare/ (OGs before AlignmentCompare processing)
-    -   AlignmentCompare.checkpoint.ok
-    -   08.backup_check_occupancy_2nd/ (OGs before occupancy check)
-    -   rejected_few_taxa_2/ (OGs with low taxonomy sampling)
-    -   check_occupancy_2nd.checkpoint.ok
-    -   phylopypruner_output/
-        -    All partitions (Folder: filtered)
-        -    supermatrix.new.fas (concatenated matrix)
-        -    partition_data.new.txt
-        -    $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.FastTree.full.tre (FastTreeMP -slow -gamma)
-        -    $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.IQTREE2.full.tre (iqtree2 -m MFP)
-        -    run_ASTRAL_FastTreeMP.sh (gene trees implimented by FastTreeMP)
-        -    run_ASTRAL_IQTREE2.sh (gene trees implimented by IQTREE2 with the best model)
-        -    run_phylobayes.2500000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.2500000.fa
-        -    run_phylobayes.5000000.sh and $PREFIX.$NUMBER-OF-INPUTS__$OCCCUPANCY.5000000.fa
-        -    plots/ (heatmap of occupancy)
-        -    output_alignments/ (each OG that was pseudo single-copy via PhyloPyPruner, but there might be some duplicated OGs that will raise errors in iqtree2)
-        -    filtered/ (the deduplicated OGs from output_alignments)
-        -    phylopypruner.log (PhyloPyPruner running log)
-        -    partition_data.new.txt* (iqtree2 results)  
+1. If all inputs are proteins, VEHoP works for any organism—prokaryotic or eukaryotic.
+2. For transcript inputs, adjust the genetic code in TransDecoder (`-g Universal`). VEHoP automatically adopts TransDecoder for transcript coding potential prediction if needed.
+3. When working with genomic sequences or miniprot-derived transcripts, you must provide a protein database for alignment (`-d database`). Otherwise, the pipeline will raise an exception and exit.
 
-Tips in running
--
-    
-1) The script will check the existence of intermedia files in homolog-inference from genomic or transcriptional profiles. It will skip the step if the same input and database in the same working directory as before. If you want to run in a new directory with the same input, you could make soft links or copy them so that the pipeline will take less time. (We are considering to deposite this file in the package directory in the next version.)
-2) Of course, more predicted proteins if more database. The consuming time in miniprot step will increase with the size of databases. We would recommend two or three high-quality proteomes based on our tests.
-3) Please run in the same working directory if you would like to test the performance of difference taxonomy occupancy with the same input and database. It will skip the OrthoFinder step. 
+## Installation
 
-Example
--
-    working_directory: /home/yunlongli/Software/VEHoP/test
-    database: /home/yunlongli/mollusca_three.pep.fasta 
-    Time: 2023-12-25
-    Command: python3 /home/yunlongli/Software/VEHoP/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
-    log_file: /home/yunlongli/Software/VEHoP/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log
-    Result_directory: /home/yunlongli/VEHoP/test/mollusca.40__0.25.Phylogenomics/phylopyruner/
-      /home/yunlongli/Software/VEHoP/test/mollusca.40__0.25.IQTREE2.full.tre
-      /home/yunlongli/Software/VEHoP/test/mollusca.40__0.25.FastTree.full.tre
-  
-Publication
--
-VEHoP: A Versatile, Easy-to-use, and Homology-based Phylogenomic pipeline accommodating diverse sequences    
-Yunlong Li, Xu Liu, Chong Chen, Jian-Wen Qiu, Kevin Kocot, Jin Sun    
-bioRxiv 2024.07.24.604968; doi: https://doi.org/10.1101/2024.07.24.604968    
-     
+**Prerequisites:**
+- [Mamba](https://github.com/conda-forge/miniforge#mambaforge) (strongly recommended) or Conda.
 
-Remark
--
-If you have any questions, feel free to post an issue or email to ylify@connenct.ust.hk  
-  
-Please cite the integrated software (below) in this pipeline if you will include this pipeline, with doi or website listed. 
-Since not all dependencies are included in your study, you could check the used ones in the log_file.  
-Bioconda: https://doi.org/10.1038/s41592-018-0046-7  
-General shell pipeline: https://doi.org/10.1093/sysbio/syw079  
-AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git  
-BMGE: https://doi.org/10.1186/1471-2148-10-210  
-cd-hit: https://doi.org/10.1093/bioinformatics/bts565  
-FastTree: https://doi.org/10.1371/journal.pone.0009490  
-HmmCleaner: https://doi.org/10.1186/s12862-019-1350-2  
-IQ-TREE 2: https://doi.org/10.1093/molbev/msaa015  
-miniprot: https://doi.org/10.1093/bioinformatics/btad014   
-OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y   
-TransDecoder: https://github.com/TransDecoder/TransDecoder.git  
-uniqHaplo: http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/perl-scripts/uniqHaplo.pl
+```shell
+git clone https://github.com/ylify/VEHoP.git # or download from Releases
+cd VEHoP
+mamba env create --name phylogenomics -f environment.yml
+# A new environment named 'phylogenomics' will be created with most dependencies installed
+mamba activate phylogenomics
+# If Mamba is not available, use Conda
+```
+
+Most dependencies have been integrated, but `HmmCleaner.pl` cannot be configured via Conda/Mamba.
+
+**Installing HmmCleaner.pl (from VEHoP directory):**
+
+```shell
+chmod +x ./dependencies/cpanm 
+cpanm Bio::MUST::Apps::HmmCleaner 
+# This step might take ~20 minutes; failures during installation are common and not critical
+./dependencies/cpanm Bio::MUST::Apps::HmmCleaner --force 
+# Test HmmCleaner.pl for executability; errors prevent results, but its usage is optional
+```
+
+If you wish to install HmmCleaner.pl, follow the [guidelines here](https://metacpan.org/release/ARNODF/Bio-MUST-Apps-HmmCleaner-0.180750/source/INSTALL).
+
+**Docker Image:**
+```shell
+docker pull agnostidae/vehop:1.3
+```
+
+## Dependency Check
+
+- For local installations:
+  ```shell
+  python3 VEHoP.py -h
+  ```
+- For Docker (ensure all input files are in `host_input_working_dir`):
+  ```shell
+  docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash # interactive container
+  python /root/app/VEHoP/VEHoP.py -h  
+  ```
+  Output should display the help information below if dependencies are properly resolved.
+
+## Usage
+
+```shell
+chmod +x VEHoP.py
+# (Optional: to avoid typing python3 every time)
+python3 VEHoP.py [absolute path] [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+```
+
+### Options
+
+- `-h, --help`  
+    Show this help message and exit
+- `-p PREFIX, --prefix PREFIX`  
+    Prefix used in output (required)
+- `-t THREADS, --threads THREADS`  
+    Number of threads to use (required, default: 40)
+- `-i INPUT, --input INPUT`  
+    Input files for tree construction (required, must be in the working directory, default: `raw`)
+- `-m MIN_TAXA, --min_taxa MIN_TAXA`  
+    Taxon threshold for partition (required, default: 2/3 of total inputs)
+- `-l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF`  
+    Length threshold for partition (required, default: 100)
+- `-g GENETIC_CODE, --genetic_code GENETIC_CODE`  
+    Genetic code used for predicting proteins from transcripts. Check via `TransDecoder.LongOrfs -h`. Optional if using only proteins and genomes; required if transcripts are present (default: Universal).
+- `-d DATABASE, --database DATABASE`  
+    Protein sequences for homolog prediction from genomic sequences. Recommended to use proteins from close relatives (suggest at least three organisms from the same genus, family, order, class, or phylum). Optional if input is proteins or transcripts; required if genomic sequences are included. Must use absolute path. Database will not be included in the output tree or matrix.
+
+## Configuration
+
+See details in `example.config`.
+
+## Input
+
+Input directory (default: `raw` in working directory) containing sequence files. Use the following suffix conventions:
+
+1. Raw reads or SRA accessions (see `example.reads.txt`)
+2. Genomic fasta: `species_name.genomic.fasta`
+3. Transcript fasta: `species_name.transcript.fasta`
+4. Protein fasta: `species_name.pep.fasta`
+
+**Note:** The `species_name` must be consistent across files for proper tree visualization. Naming conventions:
+
+- `genus_species.genomic/transcript/pep.fasta`
+- For multiple inputs from the same species:  
+  `genus_species_1.genomic/transcript/pep.fasta`, `genus_species_2.genomic/transcript/pep.fasta`
+- To distinguish assembly method/source:  
+  `genus_species_megahit.genomic.fasta` (assembled with Megahit),  
+  `genus_species_trinity.transcript.fasta` (assembled with Trinity)
+
+## Output
+
+- `$PREFIX.$NUM_INPUTS__$OCCUPANCY.FastTree.full.tre` (FastTreeMP -slow -gamma)
+- `$PREFIX.$NUM_INPUTS__$OCCUPANCY.IQTREE2.full.tre` (IQ-TREE2 -m MFP)
+- `homolog-phylogenomics.$PREFIX.$NUM_INPUTS__$OCCUPANC.RUN-Day.log` (VEHoP running log)
+- `miniprot/`: Results of homolog inference via miniprot (GFF/GFF3 and predicted amino acid sequences)
+- `transdecoder/`: Homolog inference results via TransDecoder (predicted amino acid sequences)
+- `reads/`: Processed reads (e.g., `_RNA.transcript.fasta`, `_NGS.genomic.fasta`, etc.), organized into folders per input
+- `cd-hit/`: Non-redundant amino acid sequences (miniprot/TransDecoder output, cutoff: 0.85)
+- `$PREFIX.$NUM_INPUTS.orthofinder`: OrthoFinder results, PhyloPyPruner input files, and logs
+- `$PREFIX.$NUM_INPUTS__$OCCUPANCY.Phylogenomics/`: Complete results, including:
+  - OG*.fa and OG*.tre (PhyloPyPruner inputs)
+  - Backup, checkpoint, rejected taxa, and filtered alignment folders
+  - PhyloPyPruner run logs, concatenated matrices, partition info
+  - Final trees, shell scripts for ASTRAL and PhyloBayes gene tree analysis
+  - AlignmentCompare, BMGE, trimal checkpoints
+  - Occupancy heatmap plots
+
+## Tips for Running
+
+1. The script checks for existing intermediate files. If files from previous runs exist with the same input/database, those steps are skipped.
+2. More databases result in more predicted proteins, increasing runtime for the miniprot step. Two or three high-quality proteomes are recommended for practical performance.
+3. To test different taxonomic occupancies using the same input/database, run in the same working directory. OrthoFinder steps will be skipped if completed previously.
+
+## Example
+
+- Working directory: `/home/yunlongli/Software/VEHoP/test`
+- Database: `/home/yunlongli/mollusca_three.pep.fasta`
+- Date: 2023-12-25
+- Command:
+  ```shell
+  python3 /home/yunlongli/Software/VEHoP/VEHoP.py -i test -t 40 -m 10 -p mollusca -d /home/yunlongli/mollusca_three.pep.fasta
+  ```
+- Log file: `/home/yunlongli/Software/VEHoP/test/homolog-phylogenomics.mollusca.40__0.25.2023-12-25.log`
+- Results: `/home/yunlongli/VEHoP/test/mollusca.40__0.25.Phylogenomics/phylopypruner/`
+  - `/home/yunlongli/Software/VEHoP/test/mollusca.40__0.25.IQTREE2.full.tre`
+  - `/home/yunlongli/Software/VEHoP/test/mollusca.40__0.25.FastTree.full.tre`
+
+## Publication
+
+VEHoP: A Versatile, Easy-to-use, Homology-based Phylogenomic Pipeline Accommodating Diverse Sequences  
+Yunlong Li, Xu Liu, Chong Chen, Jian-Wen Qiu, Kevin Kocot, Jin Sun  
+bioRxiv 2024.07.24.604968; doi: https://doi.org/10.1101/2024.07.24.604968
+
+## Remarks
+
+If you have questions, feel free to open an issue or email ylify@connect.ust.hk.
+
+Please cite any integrated software you use from this pipeline, using the provided DOIs or websites listed below. Since not all dependencies may be included in your analysis, you can check the actual usage in the log file.
+
+- Bioconda: https://doi.org/10.1038/s41592-018-0046-7  
+- General shell pipeline: https://doi.org/10.1093/sysbio/syw079  
+- AlignmentCompare: https://github.com/DamienWaits/Alignment_Compare.git  
+- BMGE: https://doi.org/10.1186/1471-2148-10-210  
+- cd-hit: https://doi.org/10.1093/bioinformatics/bts565  
+- FastTree: https://doi.org/10.1371/journal.pone.0009490  
+- HmmCleaner: https://doi.org/10.1186/s12862-019-1350-2  
+- IQ-TREE 2: https://doi.org/10.1093/molbev/msaa015  
+- miniprot: https://doi.org/10.1093/bioinformatics/btad014  
+- OrthoFinder: https://doi.org/10.1186/s13059-019-1832-y  
+- TransDecoder: https://github.com/TransDecoder/TransDecoder.git  
+- uniqHaplo: http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/perl-scripts/uniqHaplo.pl
