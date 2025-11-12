@@ -77,6 +77,8 @@ docker pull agnostidae/vehop:1.3
   ```shell
   python3 VEHoP.py -h
   ```
+  It will check the dependencies, show the missing ones, and then install them via mamba automatically.
+  
 - For Docker (ensure all input files are in `host_input_working_dir`):
   ```shell
   docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash # interactive container
@@ -85,32 +87,37 @@ docker pull agnostidae/vehop:1.3
   Output should display the help information below if dependencies are properly resolved.
 
 ## Usage
-
-```shell
-chmod +x VEHoP.py
-# (Optional: to avoid typing python3 every time)
-python3 VEHoP.py [absolute path] [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
-```
-
-### Options
-
-- `-h, --help`  
-    Show this help message and exit
-- `-p PREFIX, --prefix PREFIX`  
-    Prefix used in output (required)
-- `-t THREADS, --threads THREADS`  
-    Number of threads to use (required, default: 40)
-- `-i INPUT, --input INPUT`  
-    Input files for tree construction (required, must be in the working directory, default: `raw`)
-- `-m MIN_TAXA, --min_taxa MIN_TAXA`  
-    Taxon threshold for partition (required, default: 2/3 of total inputs)
-- `-l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF`  
-    Length threshold for partition (required, default: 100)
-- `-g GENETIC_CODE, --genetic_code GENETIC_CODE`  
-    Genetic code used for predicting proteins from transcripts. Check via `TransDecoder.LongOrfs -h`. Optional if using only proteins and genomes; required if transcripts are present (default: Universal).
-- `-d DATABASE, --database DATABASE`  
-    Protein sequences for homolog prediction from genomic sequences. Recommended to use proteins from close relatives (suggest at least three organisms from the same genus, family, order, class, or phylum). Optional if input is proteins or transcripts; required if genomic sequences are included. Must use absolute path. Database will not be included in the output tree or matrix.
-
+Usage
+-
+    chmod +x VEHoP.py
+      #(if you don't want to call python3 every run)
+    python3 VEHoP.py (with absolute path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
+    
+    
+    options:
+          -h, --help
+                  show this help message and exit
+          -p PREFIX, --prefix PREFIX
+                  The prefix used in the output (Required)
+          -t THREADS, --threads THREADS
+                  Threads used in running (Required, default: 40)
+          -i INPUT, --input INPUT
+                  Files containing sequences for tree construction (Required, must be in the working directory, default: raw)        
+          -m MIN_TAXA, --min_taxa MIN_TAXA
+                  The taxon threshold in partition (Required, default: 2/3 of the total inputs)
+          -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
+                  The length threshold in partition (Required, default: 100)
+          -g GENETIC_CODE, --genetic_code GENETIC_CODE
+                  Genetic code for protein prediction from transcripts, which might be different with phylum, please check by 
+                  "TransDecoder.LongOrfs -h" (If the parameter is given, it will adopt TransDecoder to predict coding potential 
+                  in transcripts. Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal) 
+          -d DATABASE, --database DATABASE
+                  Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close
+                  relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) 
+                  (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
+                  It must be provided with the absolute path)
+                  (Database will not be included in the matrix and tree)
+   
 ## Configuration
 
 See details in `example.config`.
