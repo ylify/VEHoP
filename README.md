@@ -1,4 +1,4 @@
-# VEHoP (version 1.3)
+# VEHoP (version 1.4)
 
 A **V**ersatile and **E**asy-to-use **Ho**mology-based **P**hylogenomic (VEHoP) pipeline accommodating multiple data types (DNA, RNA, protein sequences, or raw reads).
 
@@ -6,7 +6,7 @@ With the advent of affordable sequencing technologies, massive amounts of data h
 
 Typically, phylogenetic relationships are inferred from amino acid sequences of multiple genes. However, predicting eukaryotic genes directly from genomes is often time-consuming and complex. VEHoP aims to simplify this process by providing a unified pipeline that accommodates various input types and delivers reliable phylogenetic results.
 
-Our benchmarking demonstrates that VEHoP's genome-based phylogenies are consistent with those based on high-quality protein datasets, offering robust support across all nodes (test datasets have been provided for reference).
+Our benchmarking demonstrates that VEHoP's genome-based phylogenies are consistent with those based on high-quality protein datasets, offering robust support across all nodes (test datasets have been deposited at Figshare, https://doi.org/10.6084/m9.figshare.26370955.v1 ).
 
 Supported Input Types:
 
@@ -34,7 +34,7 @@ VEHoP requires the following software:
 
 ## Applicability
 
-1. If all inputs are proteins, VEHoP works for any organism—prokaryotic or eukaryotic.
+1. If all inputs are proteins, VEHoP works for any organism, including prokaryotic or eukaryotic.
 2. For transcript inputs, adjust the genetic code in TransDecoder (`-g Universal`). VEHoP automatically adopts TransDecoder for transcript coding potential prediction if needed.
 3. When working with genomic sequences or miniprot-derived transcripts, you must provide a protein database for alignment (`-d database`). Otherwise, the pipeline will raise an exception and exit.
 
@@ -108,14 +108,14 @@ Usage
           -l LENGTH_CUTOFF, --length_cutoff LENGTH_CUTOFF
                   The length threshold in partition (Required, default: 100)
           -g GENETIC_CODE, --genetic_code GENETIC_CODE
-                  Genetic code for protein prediction from transcripts, which might be different with phylum, please check by 
+                  Genetic code for protein prediction from transcripts, which might be different for the phylum, please check by 
                   "TransDecoder.LongOrfs -h" (If the parameter is given, it will adopt TransDecoder to predict coding potential 
                   in transcripts. Optional if only proteins and genomic sequences as inputs; Required if transcripts existed in inputs, default: Universal) 
           -d DATABASE, --database DATABASE
-                  Proteins sequences for homolog prediction from genomic sequences, it is suggested as proteins from its/their close
+                  Protein sequences for homolog prediction from genomic sequences, it is suggested that proteins from their close 
                   relatives (three organisms from the same genus, family, order, class, or phylum are suggested, from public data) 
                   (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
-                  It must be provided with the absolute path)
+                  It must be provided with the absolute path.)
                   (Database will not be included in the matrix and tree)
    
 ## Configuration
