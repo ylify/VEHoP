@@ -88,6 +88,7 @@ docker pull agnostidae/vehop:1.3
 
 ## Usage
 -
+```shell
     chmod +x VEHoP.py
       #(if you don't want to call python3 every run)
     python3 VEHoP.py (with absolute path) [-h] [-p PREFIX] [-t THREADS] [-i INPUT] [-m MIN_TAXA] [-l LENGTH_CUTOFF] [-g GENETIC_CODE] [-d DATABASE]
@@ -116,7 +117,8 @@ docker pull agnostidae/vehop:1.3
                   (Optional if proteins or transcripts as inputs; Required if genomic sequences existed in inputs; 
                   It must be provided with the absolute path.)
                   (Database will not be included in the matrix and tree)
-   
+```shell
+    
 ## Configuration
 
 See details in `example.config`.
