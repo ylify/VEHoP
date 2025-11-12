@@ -87,7 +87,6 @@ docker pull agnostidae/vehop:1.3
   Output should display the help information below if dependencies are properly resolved.
 
 ## Usage
-Usage
 -
     chmod +x VEHoP.py
       #(if you don't want to call python3 every run)
