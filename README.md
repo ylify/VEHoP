@@ -13,9 +13,9 @@ Supported Input Types:
 1. Raw reads (e.g., from next-generation or third-generation DNA/RNA sequencing)
 2. Assembled genomes or transcriptomes (drafts are acceptable, even those based on short reads)
 3. Proteomes from high-quality genomes, accompanied by gene feature files (recommended as mapping databases)
-4. Combinations of any of the above sources can be used to construct a single tree, expanding taxonomic coverage. Note that requirements for high-quality genomes or transcriptomes are strict (such as sample preservation in liquid nitrogen).
+4. Combinations of any of the above sources can be used to construct a single tree, expanding taxonomic coverage. Note that requirements for high-quality genomes or transcriptomes are strict (e.g., sample preservation in liquid nitrogen).
 
-This pipeline takes advantage of ethanol-preserved samples and leverages extensive NGS data from mitochondrial and genome-survey projects.
+This pipeline leverages ethanol-preserved samples and extensive NGS data from mitochondrial and genome-survey projects.
 
 ## Workflow
 
