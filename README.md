@@ -73,18 +73,18 @@ docker pull agnostidae/vehop:1.3
 
 ## Dependency Check
 
-- For local installations:
+- For local installations: 
   ```shell
   python3 VEHoP.py -h
   ```
-  It will check the dependencies, show the missing ones, and then install them via mamba automatically.
+  The script will check the dependencies, show the missing ones, and then install them via mamba automatically.   
+  Output should display the help information (shown as below) if dependencies are properly resolved.
   
 - For Docker (ensure all input files are in `host_input_working_dir`):
   ```shell
   docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash # interactive container
   python /root/app/VEHoP/VEHoP.py -h  
   ```
-  Output should display the help information below if dependencies are properly resolved.
 
 ## Usage
 ```shell
