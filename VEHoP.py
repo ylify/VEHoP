@@ -78,9 +78,13 @@ else:
         for i in missings:
             if i != 'HmmCleaner.pl':
                 tmp_list.append(Dependencies[i])
-        with open('mamba.sh','w') as tmp_out:
-            tmp_out.write('mamba install --quiet -y -c bioconda '+' '.join(tmp_list))
-        os.system('sh mamba.sh')
+        if check_program_exist('mamba') is True:
+            with open('mamba.sh','w') as tmp_out:
+                tmp_out.write('mamba install --quiet -y -c bioconda '+' '.join(tmp_list))
+            os.system('sh mamba.sh')
+            sys.exit()
+        else:
+            print('The installation of dependencies failed. Please install mamba and re-run.')
         sys.exit()
 
 #check phylopypruner
