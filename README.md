@@ -82,6 +82,11 @@ For docker (**host_input_working_dir** should contain all the input files):
 docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash （the interactive image)
 ```
 
+Help information (shown below)
+```bash
+python3 VEHoP.py -h 
+```
+
 ### Required Parameters:
 | Option                 | Description                                                                            |
 |------------------------|----------------------------------------------------------------------------------------|
