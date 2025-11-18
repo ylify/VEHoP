@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-#log: 20241101 
+#log: 20251118
+#version 1.4: By default, the pipeline will invoke all threads to facilitate the running process.
 
+#log: 20241101 
 #verion 1.3: It supports the reads as input and then does the assembly process according to the type of reads. Currently, it covers the short-reads (including the single-end and paired-end mode, and the metagenomic and transcriptomic type) and long-reads (genomic reads from HiFi and ONT). However, it is highly suggested to be provided as the draft assembly.
 
 import sys
@@ -12,6 +14,9 @@ import multiprocessing
 import random
 from datetime import timedelta
 import subprocess
+import psutil
+n_cores = psutil.cpu_count(logical=False)
+n_threads = psutil.cpu_count(logical=True)
 
 st = time.time()
 
@@ -118,7 +123,7 @@ else:
 if args.threads:
     cores = args.threads
 else:
-    cores = 40 #change it accordingly
+    cores = int(n_threads) #change it accordingly
 
 if args.database:
     if '/' in args.database:
