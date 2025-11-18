@@ -67,6 +67,7 @@ chmod +x ./dependencies/cpanm
 
 **Other Options:**
 - [`environment.yml`](environment.yml) for full dependency management.
+- The script will check and install the missing dependencies automatically via mamba.
 - [Docker image](https://hub.docker.com): `docker pull agnostidae/vehop:1.3`.
 
 ---
@@ -114,7 +115,7 @@ VEHoP's fidelity has been tested across taxonomically diverse datasets (e.g., oy
 
 ### Accepted File Types:
 1. **Raw Reads**:
-    - Tab-delimited `.txt`, e.g.:
+    - Tab-delimited `.txt`, e.g. (shown in example.reads.txt):
     ```
     species_1    NGS    /path/to/read_r1.fq    /path/to/read_r2.fq
     species_2    HiFi   /path/to/reads.fq
@@ -153,7 +154,9 @@ homolog-phylogenomics.{PREFIX}.log
 2. Choose databases wisely:
    - High-quality proteomes from related taxa yield the best results.
 3. Adjust occupancy (`-m MIN_TAXA`) and length thresholds depending on dataset completeness, under the same working directory:
-   - The intermediate files will be checked while running. Some steps will be skipped if the same inputs are detected.
+   - The intermediate files will be checked while running. Some steps will be skipped if the same inputs are detected, reducing the running time.
+4. Configure the parameters in each dependency (listed in example.config), only for senior users.
+
 
 ---
 
