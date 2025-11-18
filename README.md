@@ -144,9 +144,11 @@ homolog-phylogenomics.{PREFIX}.log
 
 1. Ensure all sequence files follow uniform naming:
    - Use consistent prefixes (e.g., `genus_species`).
+   - Use the other labels if more than one input from the same taxonomy (e.g., `genus_species_1`, `genus_species_2`).
 2. Choose databases wisely:
    - High-quality proteomes from related taxa yield the best results.
-3. Adjust occupancy (`-m MIN_TAXA`) and length thresholds depending on dataset completeness.
+3. Adjust occupancy (`-m MIN_TAXA`) and length thresholds depending on dataset completeness, under the same working directory:
+   - The intermediate files will be checked while running. Some steps will be skipped if the same inputs are detected.
 
 ---
 
@@ -157,11 +159,15 @@ Yunlong Li, Xu Liu, Chong Chen, Jian-Wen Qiu, Kevin Kocot, Jin Sun.
 **VEHoP: A Versatile, Easy-to-use, Homology-based Phylogenomic Pipeline**.  
 bioRxiv 2024.07.24.604968; [DOI:10.1101/2024.07.24.604968](https://doi.org/10.1101/2024.07.24.604968).
 
-### Individual Dependencies:
-- **IQ-TREE2**: [doi:10.1093/molbev/msaa015](https://doi.org/10.1093/molbev/msaa015)  
+### Integrated tools:
+- **Bioconda**: [doi:10.1038/s41592-018-0046-7](https://doi.org/10.1038/s41592-018-0046-7)
+- **BMGE**: [doi:10.1186/1471-2148-10-210](https://doi.org/10.1186/1471-2148-10-210)
+- **cd-hit**: [doi:0.1093/bioinformatics/bts565](https://doi.org/10.1093/bioinformatics/bts565)
+- **IQ-TREE2**: [doi:10.1093/molbev/msaa015](https://doi.org/10.1093/molbev/msaa015) 
 - **FastTree**: [doi:10.1371/journal.pone.0009490](https://doi.org/10.1371/journal.pone.0009490)  
 - **OrthoFinder**: [doi:10.1186/s13059-019-1832-y](https://doi.org/10.1186/s13059-019-1832-y)  
-- **miniprot**: [doi:10.1093/bioinformatics/btad014](https://doi.org/10.1093/bioinformatics/btad014)  
-- **TransDecoder**: [GitHub Repository](https://github.com/TransDecoder/TransDecoder).  
-
-For more details, see dependencies listed in the `README.md`.
+- **miniprot**: [doi:10.1093/bioinformatics/btad014](https://doi.org/10.1093/bioinformatics/btad014)
+- **HmmCleaner**: [doi:10.1186/s12862-019-1350-2](https://doi.org/10.1186/s12862-019-1350-2)
+- **TransDecoder**: [GitHub Repository](https://github.com/TransDecoder/TransDecoder)
+- **AlignmentCompare**: [GitHub Repository](https://github.com/DamienWaits/Alignment_Compare)
+- **General shell pipeline**: [doi:10.1093/sysbio/syw079](https://doi.org/10.1093/sysbio/syw079)
