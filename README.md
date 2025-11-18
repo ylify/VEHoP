@@ -26,7 +26,7 @@ The pipeline follows these major steps:
    - Utilizes tools like `miniprot` for protein inference or `TransDecoder` for coding potential identification.
 
 3. **Sequence Alignment**:
-   - Automatically performs alignments with `MAFFT` and conducts quality trimming with `BMGE` or `trimal`.
+   - Automatically performs alignments with `MAFFT` and conducts quality trimming with `BMGE` and `trimal`.
 
 4. **Pruning and Matrix Creation**:
    - Applies `PhyloPyPruner` to eliminate redundancy, ensure species occupancy, and generate high-quality supermatrices.
