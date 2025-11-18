@@ -77,6 +77,11 @@ chmod +x ./dependencies/cpanm
 python3 VEHoP.py -p PREFIX -t THREADS -i INPUT -g GENETIC_CODE -d DATABASE
 ```
 
+For docker (**host_input_working_dir** should contain all the input files):
+```bash
+docker run --name vehop -v host_input_working_dir:/container_working_dir -it agnostidae/vehop:1.3 /bin/bash （the interactive image)
+```
+
 ### Required Parameters:
 | Option                 | Description                                                                            |
 |------------------------|----------------------------------------------------------------------------------------|
