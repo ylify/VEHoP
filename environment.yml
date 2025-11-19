@@ -13,7 +13,7 @@ dependencies:
   - perl=5.32
   - perl-moose
   - cd-hit>=4.8.1 
-  - transdecoder==5.5.0
+  - transdecoder=5.5.0
   - openjdk>=11.0.15
   - miniprot>=0.11
   - fasttree>=2.1.11
