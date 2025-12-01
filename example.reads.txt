@@ -5,8 +5,8 @@
 #For long reads (HiFi or ONT), fasta format is supported
 
 #prefix type	read_1	read_2 (leave it blank if single-end mode)
-#The information within bracket in the following examples is just for showing the assembler and its output name. Please do not add the bracket in your input reads.txt file#Crassostrea_hongkongensis_1	NGS	/home/yunlongli/read_1.fq	/home/yunlongli/read_2.fq (assembler: megahit, output: Crassostrea_hongkongensis_1_NGS.genomic.fasta)
-#Crassostrea_hongkongensis_2	HiFi	/home/yunlongli/read_1.fq (assembler: hifiasm, output: Crassostrea_hongkongensis_2_HiFi.genomic.fasta)
-#Crassostrea_hongkongensis_3	ONT	/home/yunlongli/read_1.fq (assembler: Shsata, output: Crassostrea_hongkongensis_3_ONT.genomic.fasta)
-#Crassostrea_hongkongensis_4	RNA	/home/yunlongli/read_1.fq.gz	/home/yunlongli/read_2.fq.gz (assembler: Trinity, output: Crassostrea_hongkongensis_4_RNA.transcript.fasta)
-#Crassostrea_hongkongensis_5	RNA	/home/yunlongli/read_1.paired.fq.gz	/home/yunlongli/read_2.paird.fq.gz (output: Crassostrea_hongkongensis_5_RNA.transcript.fasta)
+#The information within bracket in the following examples is just for showing the assembler and its output name. Please do not add the bracket in your input reads.txt file#Crassostrea_hongkongensis_1	NGS	/path/read_1.fq	/path/read_2.fq (assembler: megahit, output: Crassostrea_hongkongensis_1_NGS.genomic.fasta)
+#Crassostrea_hongkongensis_2	HiFi	/path/read_1.fq (assembler: hifiasm, output: Crassostrea_hongkongensis_2_HiFi.genomic.fasta)
+#Crassostrea_hongkongensis_3	ONT	/path/read_1.fq (assembler: Shsata, output: Crassostrea_hongkongensis_3_ONT.genomic.fasta)
+#Crassostrea_hongkongensis_4	RNA	/path/read_1.fq.gz	/path/read_2.fq.gz (assembler: Trinity, output: Crassostrea_hongkongensis_4_RNA.transcript.fasta)
+#Crassostrea_hongkongensis_5	RNA	/path/read_1.paired.fq.gz	/path/read_2.paird.fq.gz (output: Crassostrea_hongkongensis_5_RNA.transcript.fasta)
