@@ -160,6 +160,148 @@ homolog-phylogenomics.{PREFIX}.log
 
 ---
 
+### Parameter reference (as in example.config)
+
+#### Assembly
+- `shasta_cmd = --config Nanopore-May2022.conf`
+  - Description: Options passed to the Shasta assembler.
+  - Example flag used here: `--config <file>` — specify a configuration file for Shasta (e.g., tuned for Nanopore reads, such as `Nanopore-May2022.conf`).
+  - Note: Provide the correct config file available to Shasta or alter options inline as needed.
+
+- `hifiasm_cmd = --hom-cov auto`
+  - Description: Options passed to hifiasm (a HiFi assembler).
+  - `--hom-cov auto` tells hifiasm to automatically estimate homozygous coverage. You can instead set an explicit numeric coverage if desired.
+
+- `megahit_cmd= --k-list 21,29,39,59,79,99,119,141 -m 0.8`
+  - Description: Options passed to MEGAHIT (short-read assembler).
+  - `--k-list 21,29,...` sets the k-mer sizes MEGAHIT will iterate through.
+  - `-m 0.8` sets the memory limit (fraction of available memory or memory parameter depending on MEGAHIT version) — commonly used to limit RAM usage; check your installed MEGAHIT version for exact semantics.
+
+- `Trinity_cmd = --seqType fq --max_memory 100G --CPU 6 --full_cleanup`
+  - Description: Options passed to Trinity (RNA-seq assembler).
+  - `--seqType fq` input sequencing type (fastq).
+  - `--max_memory 100G` maximum memory Trinity is allowed to use.
+  - `--CPU 6` number of CPU threads to use.
+  - `--full_cleanup` remove intermediate files after assembly to save disk.
+
+---
+
+#### Protein-coding region calling
+- `miniprot_cmd = -L 30 -j 1 -G 200k`
+  - Description: Options for miniprot (protein-to-genome alignment).
+  - Common meanings:
+    - `-L 30` — minimum alignment length to report (e.g., 30 aa) or similar threshold; helps discard very short hits.
+    - `-j 1` — number of threads (here set to 1). Pipelines typically replace this with a parallelism variable.
+    - `-G 200k` — maximum intron/gap length (e.g., 200k bases). Adjust according to expected gene structure and genome size.
+  - Note: Confirm exact flag semantics with the miniprot version you use.
+
+- `transdecoder_cmd = -m 100`
+  - Description: Options for TransDecoder (predicting coding regions/ORFs).
+  - `-m 100` — minimum protein length (in amino acids) for retained ORFs; here set to 100 AA.
+
+- `cd-hit_cmd = -c 0.85 -M 50000`
+  - Description: Options for CD-HIT (sequence clustering/deduplication).
+  - `-c 0.85` — sequence identity threshold (85%). Sequences with identity >= 0.85 are clustered together.
+  - `-M 50000` — memory limit in MB (e.g., 50000 MB = 50 GB). Adjust for your environment.
+
+---
+
+#### Ortholog inference
+- `orthofinder_cmd = -S diamond`
+  - Description: Options for OrthoFinder.
+  - `-S diamond` — use DIAMOND for sequence similarity searches (fast alternative to BLAST). OrthoFinder will run all-vs-all searches with DIAMOND.
+
+---
+
+#### Supermatrix construction (alignment processing)
+- `uniqHaplo_cmd =`
+  - Description: Placeholder for a tool/command that collapses or deduplicates highly similar haplotypes. Blank in example — add options for the tool you use.
+
+- `mafft_cmd = --auto --localpair --quiet --maxiterate 1000`
+  - Description: Options for MAFFT multiple sequence alignment.
+  - `--auto` — let MAFFT select an appropriate algorithm based on input size.
+  - `--localpair` — use iterative refinement method suitable for high accuracy (L-INS-i).
+  - `--quiet` — suppress verbose output.
+  - `--maxiterate 1000` — run up to 1000 refinement iterations.
+
+- `HmmCleaner_cmd = --specificity`
+  - Description: Options for HmmCleaner (or similar HMM-based alignment cleaner).
+  - `--specificity` — favor specificity when cleaning (more aggressive removal of suspect columns/regions). Check tool docs for exact behavior.
+
+- `trimal_cmd = -automated1`
+  - Description: Options for trimAl (alignment trimming tool).
+  - `-automated1` — automated method to choose a trimming strategy appropriate for the alignment.
+
+- `BMGE_cmd = -t AA -g 0.2`
+  - Description: Options for BMGE (Block Mapping and Gathering with Entropy).
+  - `-t AA` — indicate amino-acid alignment (AA).
+  - `-g 0.2` — gap threshold; for example, remove alignment columns with >20% gaps (confirm exact interpretation per BMGE version).
+
+- `AlignmentCompare_cmd =`
+  - Description: Placeholder for a tool/command that compares alternative alignments (empty in the example). Add arguments for whichever alignment comparison tool you use.
+
+- `phylopypruner_cmd = --min-support 0.75 --mask pdist --trim-divergent 0.75 --min-pdist 0.01 --prune MI`
+  - Description: Options for PhyloPyPruner (tree-based ortholog/pruning tool).
+  - Typical meanings:
+    - `--min-support 0.75` — minimum node support (e.g., bootstrap or other support metric) to consider clades reliable. Here expressed as fraction (75%).
+    - `--mask pdist` — mask sequences or sites based on pairwise distance criteria (mode `pdist`).
+    - `--trim-divergent 0.75` — trim sequences diverging beyond this threshold (relative measure).
+    - `--min-pdist 0.01` — minimum pairwise distance to retain (avoid near-identical sequences causing artifacts).
+    - `--prune MI` — pruning strategy (e.g., MI stands for a particular criterion; check tool docs).
+  - Note: These controls tune how strict the pruning is when removing paralogs and divergent sequences from gene trees.
+
+---
+
+#### Phylogenetic relationship
+- `FastTreeMP_cmd = -slow -gamma`
+  - Description: Options for FastTree (parallel/MP version).
+  - `-slow` — run a slower but more thorough tree search.
+  - `-gamma` — use the Gamma model of rate heterogeneity across sites.
+
+- `iqtree2_cmd = -B 1000 -m MFP`
+  - Description: Options for IQ-TREE 2 (phylogenetic inference).
+  - `-B 1000` — run 1000 ultrafast bootstrap replicates (UFBoot).
+  - `-m MFP` — run ModelFinder Plus (automatic model selection across many candidate models).
+
+---
+
+### General notes & best practices
+
+- Always confirm the exact meaning of each flag with the documentation for the specific tool version installed on your system; option semantics can change between versions.
+- When editing the config:
+  - Keep each variable as a single line mapping to the tool options.
+  - Do not include the program binary name in the value (the pipeline is expected to prepend the executable name).
+  - For parallelism and memory, prefer using pipeline-level variables (if available) to avoid hardcoding thread counts in each tool value. The example shows `-j 1` in `miniprot_cmd` — replace it with your thread variable if the pipeline supports it.
+- For blank placeholders (e.g., `uniqHaplo_cmd`, `AlignmentCompare_cmd`), fill in options for the specific tool you plan to use or leave blank to use pipeline defaults.
+
+---
+
+### Example: customizing the config
+
+Suppose you want to:
+- Run Trinity with 24 CPUs and 200 GB memory:
+  - Edit `Trinity_cmd` to:
+    - `Trinity_cmd = --seqType fq --max_memory 200G --CPU 24 --full_cleanup`
+
+- Run CD-HIT clustering at 95% identity and allocate 64 GB RAM:
+  - Edit `cd-hit_cmd` to:
+    - `cd-hit_cmd = -c 0.95 -M 64000`
+
+- Use IQ-TREE with 1000 standard non-parametric bootstraps instead of ultrafast bootstraps:
+  - Modify:
+    - `iqtree2_cmd = -b 1000 -m MFP`
+  - (Note: `-b` triggers standard non-parametric bootstrap; check IQ-TREE docs.)
+
+---
+
+### Troubleshooting
+
+- If a tool fails with an unknown option, remove or adjust the offending flag and re-run. Version mismatches are a common cause.
+- If memory-related crashes occur, lower `-m` (MEGAHIT), `-M` (CD-HIT), or `--max_memory` (Trinity) in the config before re-submitting jobs.
+- If assemblies or alignments look poor, consider changing alignment/trimming options (MAFFT, trimAl, BMGE) to be less aggressive; conversely, increase strictness to remove artifactual regions.
+
+---
+
 ## References
 
 ### Recommended Citation:
