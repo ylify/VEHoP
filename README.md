@@ -103,8 +103,8 @@ python3 VEHoP.py -h
 | `-i INPUT`             | Directory containing sequence files (`raw/` by default).                               |
 | `-g GENETIC_CODE`      | Genetic code for `TransDecoder` (e.g., Universal, required for transcript datasets when de novo prediction).    |
 | `-d DATABASE`          | Protein database for homolog prediction (required if input includes genomes).          |
-| `-r READS`             | Raw reads as inputs (tab-delimited).         |
-| `-c CONFIGS`           | The customized commands or parameters for integrated software.        |
+| `-r READS`             | Raw reads as inputs (tab-delimited), cases shown in 'example.reads.txt'.         |
+| `-c CONFIGS`           | The customized commands or parameters for integrated software, cases shown in 'example.config'.     |
 | `-l LENGTH`            | The length threshold in parition.       |
 | `-min MINIMUM_TAXA`    | The taxonic sampling threshold in each parition (default: 2/3 of the total inputs).        |
 
