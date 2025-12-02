@@ -69,6 +69,7 @@ chmod +x ./dependencies/cpanm
 - [`environment.yml`](environment.yml) for full dependency management.
 - The script will check and install the missing dependencies automatically via mamba.
 - [Docker image](https://hub.docker.com): `docker pull agnostidae/vehop:1.3`.
+- [Singularity image]: `singularity pull library://xuliuouc/collection/vehop`.
 
 ---
 
