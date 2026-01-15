@@ -90,6 +90,13 @@ singularity run --contain --home host_input_working_dir --bind host_input_workin
 python /root/app/VEHoP/VEHoP.py -h
 ```
 
+For Apptainer (It should be run under the directory with input_working_dir):
+```bash
+apptainer shell VEHop.sif
+source /root/miniforge3/etc/profile.d/conda.sh && conda activate phylogenomics
+python /root/app/VEHoP/VEHoP.py -h
+``` 
+
 Help information (shown below)
 ```bash
 python3 VEHoP.py -h 
