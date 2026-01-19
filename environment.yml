@@ -27,3 +27,4 @@ dependencies:
   - perl-bioperl>=1.7.8
   - pip:
     - phylopypruner==1.2.6 
+    - psutil
