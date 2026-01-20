@@ -103,10 +103,10 @@ python3 VEHoP.py -h
 ```
 
 Running test (example data)    
-The example data (demo.tar.gz) has been deposited at figshare (https://doi.org/10.6084/m9.figshare.28189616). 
+The example data (demo.tar.gz and demo_db.fasta.gz) have been deposited at figshare (https://doi.org/10.6084/m9.figshare.28189616). 
 ```bash
 tar -zxvf demo.tar.gz
-cd demo
+gunzip demo_db.fasta.gz
 python VEHoP.py -p test -t 60 -i raw -d demo_db.fasta
 ```
 
