@@ -330,8 +330,7 @@ Suppose you want to:
 ### Recommended Citation:
 Yunlong Li, Xu Liu, Chong Chen, Jian-Wen Qiu, Kevin Kocot, Jin Sun (2026).  
 **Reliable Inference of Phylogenomic Relationship via Assembly‐Based Strategy Accommodating Raw Reads and Proteins**.  
-Molecular Ecology Resources. https://doi.org/10.1111/1755-0998.70116 (Comming soon)    
-[biorxiv:10.1101/2024.07.24.604968](https://doi.org/10.1101/2024.07.24.604968).
+Molecular Ecology Resources. [doi:10.1111/1755-0998.70116](https://doi.org/10.1111/1755-0998.70116).    
 
 ### Integrated tools:
 - **Bioconda**: [doi:10.1038/s41592-018-0046-7](https://doi.org/10.1038/s41592-018-0046-7)
