@@ -59,6 +59,13 @@ mamba env create --name phylogenomics -f environment.yml
 mamba activate phylogenomics
 ```
 
+### Step 2: Install Dependencies (manually)
+```bash
+mamba env create --name phylogenomics -c conda-forge -c bioconda -c pytorch orthofinder=2.5.4 ‘python<=3.12’ megahit trinity hifiasm shasta perl=5.32 perl-moose cd-hit>=4.8.1 transdecoder=5.5.0 openjdk>=11.0.15 miniprot>=0.11 fasttree>=2.1.11 iqtree=2.2.0.3 mafft>=7.508 aster hmmer bmge trimal pip perl-bioperl>=1.7.8
+mamba activate phylogenomics
+pip install phylopypruner==1.2.6 psutil
+```
+
 ### Optional: Install HmmCleaner
 ```bash
 chmod +x ./dependencies/cpanm
