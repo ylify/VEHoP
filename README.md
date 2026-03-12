@@ -75,8 +75,8 @@ chmod +x ./dependencies/cpanm
 
 ## Usage
 
-```bash
-python3 VEHoP.py -p PREFIX -t THREADS -i INPUT -g GENETIC_CODE -d DATABASE
+```bash ($PATH should be the absolute path)
+python3 $PATH/VEHoP.py -p PREFIX -t THREADS -i INPUT -g GENETIC_CODE -d DATABASE
 ```
 
 For docker (**host_input_working_dir** should contain all the input files, the absolute path):
