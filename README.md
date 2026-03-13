@@ -82,6 +82,8 @@ chmod +x ./dependencies/cpanm
 
 ## Usage
 
+Note: The script should be run via the absolute path.     
+
 ```bash ($PATH should be the absolute path)
 python3 $PATH/VEHoP.py -p PREFIX -t THREADS -i INPUT -g GENETIC_CODE -d DATABASE
 ```
