@@ -26,5 +26,6 @@ dependencies:
   - pip=23.3.2
   - perl-bioperl>=1.7.8
   - pip:
-    - phylopypruner==1.2.6 
+    - phylopypruner==1.2.6
+    - setuptools==81.0.0
     - psutil
