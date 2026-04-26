@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+#log: 20260426
+#version 1.5.1: We corrected an error in the script (VEHoP.py), revising the NameError.
+
 #log: 20260312
-#version 1.6: 1) The revision of check in the existed orthofinder; 2) The issue might raise when the user did not provide the absolute path of script, typically in the test dataset.
+#version 1.5: 1) The revision of check in the existed orthofinder; 2) The issue might raise when the user did not provide the absolute path of script, typically in the test dataset.
 
 #log: 20251118
 #version 1.4: By default, the pipeline will invoke all threads to facilitate the running process.
