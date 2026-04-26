@@ -261,9 +261,9 @@ if args.reads:
                 reads_records.append(line.strip('\n'))
                 n = line.strip('\n').split('\t')
                 if 'RNA' not in n:
-                    reads_record_1.append(n[0]+'.genomic.fasta')
+                    reads_records_1.append(n[0]+'.genomic.fasta')
                 else:
-                    reads_record_1.append(n[0]+'.transcript.fasta')
+                    reads_records_1.append(n[0]+'.transcript.fasta')
     reads_dir = pwd+'/reads/'
     if os.path.isdir(reads_dir) is False:
         os.makedirs(reads_dir)
