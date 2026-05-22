@@ -407,7 +407,7 @@ try:
         if len(glob.glob(pwd+'/'+input_folder+'/*.genomic.fasta')) > 0:
             genomes = genomes + glob.glob(pwd+'/'+input_folder+'/*.genomic.fasta')
         if len(glob.glob(pwd+'/'+input_folder+'/*.transcript.fasta')) > 0:
-            transcripts = transcript + glob.glob(pwd+'/'+input_folder+'/*.transcript.fasta')
+            transcripts = transcripts + glob.glob(pwd+'/'+input_folder+'/*.transcript.fasta')
         if len(glob.glob(pwd+'/'+input_folder+'/*.pep.fasta')) > 0:
             proteins = proteins + glob.glob(pwd+'/'+input_folder+'/*.pep.fasta')
     if os.path.isdir(pwd+'/reads') is True:
