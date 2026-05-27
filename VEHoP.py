@@ -515,8 +515,8 @@ def TransDecoder(fasta):
     ln_cmd = 'ln -s '+fasta+' '+pwd+'/transdecoder/'+fasta_name
     if os.path.isfile(pwd+'/transdecoder/'+fasta_name) is False:
         os.system(ln_cmd)
-    transdecoder_cmd_1 = 'TransDecoder.LongOrfs '+customized['transdecoder']+' --genetic_code '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
-    transdecoder_cmd_2 = 'TransDecoder.Predict --genetic_code '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
+    transdecoder_cmd_1 = 'TransDecoder.LongOrfs '+customized['transdecoder']+' -G '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
+    transdecoder_cmd_2 = 'TransDecoder.Predict -G '+genetic_code+ ' -t '+pwd+'/transdecoder/'+fasta_name
     os.system(transdecoder_cmd_1)
     os.system(transdecoder_cmd_2)
     os.system('ln -s '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.pep '+pwd+'/transdecoder/'+fasta_name+'.transdecoder.filtered.fasta')
