@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
+##log: 20260527
+#version 1.5.3: Fixed a bug in VEHoP.py by revising the parameter settings for TransDecoder.
+
 #log: 20260426
-#version 1.5.1: We corrected an error in the script (VEHoP.py), revising the NameError.
+#version 1.5.1: Fixed a NameError exception in VEHoP.py to ensure successful script execution.
 
 #log: 20260312
-#version 1.5: 1) The revision of check in the existed orthofinder; 2) The issue might raise when the user did not provide the absolute path of script, typically in the test dataset.
+#version 1.5: 1) Revised the verification process for existing OrthoFinder runs; 2) Fixed a path resolution issue that caused errors when users executed the script with a relative path rather than an absolute path (frequently seen when running test datasets).
 
 #log: 20251118
 #version 1.4: By default, the pipeline will invoke all threads to facilitate the running process.
 
 #log: 20241101 
-#verion 1.3: It supports the reads as input and then does the assembly process according to the type of reads. Currently, it covers the short-reads (including the single-end and paired-end mode, and the metagenomic and transcriptomic type) and long-reads (genomic reads from HiFi and ONT). However, it is highly suggested to be provided as the draft assembly.
+#version 1.3: It supports the reads as input and then does the assembly process according to the type of reads. Currently, it covers the short-reads (including the single-end and paired-end mode, and the metagenomic and transcriptomic type) and long-reads (genomic reads from HiFi and ONT). However, it is highly suggested to be provided as the draft assembly.
 
 import sys
 import argparse
