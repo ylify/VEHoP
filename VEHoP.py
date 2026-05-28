@@ -646,9 +646,11 @@ except:
         cd_hit_fastas_1 = []
         for cd_hit_fasta in cd_hit_fastas:
             if cd_hit_fasta.rsplit('/')[-1].split('.')[0] in set(species_list):
-                if cd_hit_fasta.rsplit('/')[-1].endswith('transcript.fasta') is True:
+                if cd_hit_fasta.rsplit('/')[-1].endswith('pep.fasta') is True:
                     cd_hit_fastas_1.append(cd_hit_fasta)
-                else:
+                elif 'genomic.miniprot.pep.filtered.cd-hit-0.85' in cd_hit_fasta.split('/')[-1]:
+                    cd_hit_fastas_1.append(cd_hit_fasta)
+                elif 'transcript.fasta' in cd_hit_fasta.split('/')[-1]:
                     if transdecoder == 'True' and 'transdecoder' in cd_hit_fasta.rsplit('/')[-1]:
                         cd_hit_fastas_1.append(cd_hit_fasta)
                     elif transdecoder == 'False' and 'transdecoder' not in cd_hit_fasta.rsplit('/')[-1]:
