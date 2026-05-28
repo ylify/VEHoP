@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+##log: 20260528
+#version 1.5.4: Fixed a bug in VEHoP.py by revising the sampling for OrthoFinder
+
 ##log: 20260527
 #version 1.5.3: Fixed a bug in VEHoP.py by revising the parameter settings for TransDecoder.
 
